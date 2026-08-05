@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Diana & Marco — Nuestra Boda</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <script src="main.js" defer></script>
+</head>
+
+<body>
+
+    <div id="pantalla-error" class="hidden">
+        <div class="icono">💌</div>
+        <h1>Link no válido</h1>
+        <p>Este link de invitación no existe o ya no está disponible. Si crees que es un error, contacta a Diana y
+            Marco.</p>
+    </div>
+
+    <div id="pantalla-ya-confirmo" class="hidden">
+        <div class="icono">✨</div>
+        <h1>¡Ya tienes tu lugar!</h1>
+        <p>Ya confirmaste tu asistencia anteriormente. ¡Nos vemos el gran día!</p>
+    </div>
+
+    <div id="invitacion">
+        <section id="sobre-container">
+            <div class="sobre-header">
+                <span class="sobre-header-script">Con amor los invitan</span>
+                <span class="sobre-header-nombres">Diana & Marco</span>
+                <span class="sobre-header-linea"></span>
+            </div>
+
+            <div id="sobre">
+                <div class="sobre-imagen-wrapper">
+                    <img src="img/sobre.png" alt="Sobre de invitación" class="sobre-img" id="sobre-img">
+                    <div class="sobre-solapa-animada" id="sobre-solapa-animada">
+                        <img src="img/sobre-solapa.png" alt="" class="sobre-solapa-img">
+                        <img src="img/sello-cera.png" alt="Sello" class="sobre-sello">
+                        <div class="sobre-iniciales">D&M</div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="sobre-instruccion">Toca para abrir tu invitación</p>
+            <img src="img/rama-izq.png" class="decoracion-esquina esquina-superior-izq" alt="">
+            <img src="img/rama-der.png" class="decoracion-esquina esquina-inferior-der" alt="">
+        </section>
+
+        <section id="hero" class="hidden">
+            <div class="hero-img-placeholder"></div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h2 class="hero-script">Nuestra Boda</h2>
+                <h1 class="hero-nombres">Diana & Marco</h1>
+                <p class="hero-frase">El mejor viaje de nuestras vidas está a punto de comenzar</p>
+                <div class="hero-scroll">↓</div>
+            </div>
+        </section>
+
+        <section id="countdown">
+            <h2 class="countdown-eyebrow">Faltan</h2>
+            <div class="countdown-fecha">14 de Febrero 2026</div>
+            <div class="countdown-timer">
+                <div class="countdown-bloque">
+                    <span id="cd-dias">00</span>
+                    <label>Días</label>
+                </div>
+                <div class="countdown-separador">:</div>
+                <div class="countdown-bloque">
+                    <span id="cd-horas">00</span>
+                    <label>Horas</label>
+                </div>
+                <div class="countdown-separador">:</div>
+                <div class="countdown-bloque">
+                    <span id="cd-minutos">00</span>
+                    <label>Min</label>
+                </div>
+                <div class="countdown-separador">:</div>
+                <div class="countdown-bloque">
+                    <span id="cd-segundos">00</span>
+                    <label>Seg</label>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</body>
+
+</html>
