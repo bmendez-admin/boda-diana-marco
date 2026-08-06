@@ -6,10 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
     <title>Diana & Marco — Nuestra Boda</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/sobre.css">
+    <link rel="stylesheet" href="css/hero.css">
+    <link rel="stylesheet" href="css/countdown.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-    <script src="main.js" defer></script>
+    <script src="js/config.js" defer></script>
+    <script src="js/core.js" defer></script>
+    <script src="js/sobre.js" defer></script>
+    <script src="js/hero.js" defer></script>
+    <script src="js/countdown.js" defer></script>
 </head>
 
 <body>
@@ -38,6 +45,7 @@
             <div id="sobre">
                 <div class="sobre-imagen-wrapper">
                     <img src="img/sobre.png" alt="Sobre de invitación" class="sobre-img" id="sobre-img">
+                    <div class="sobre-sombra-apertura" id="sobre-sombra"></div>
                     <div class="sobre-solapa-animada" id="sobre-solapa-animada">
                         <img src="img/sobre-solapa.png" alt="" class="sobre-solapa-img">
                         <img src="img/sello-cera.png" alt="Sello" class="sobre-sello">
@@ -52,7 +60,10 @@
         </section>
 
         <section id="hero" class="hidden">
-            <div class="hero-img-placeholder"></div>
+            <div class="hero-imagen-wrapper" id="hero-imagen-wrapper">
+                <img src="img/hero.png" alt="Diana y Marco" class="hero-img" id="hero-img">
+            </div>
+            <div class="hero-grano"></div>
             <div class="hero-overlay"></div>
             <div class="hero-content">
                 <h2 class="hero-script">Nuestra Boda</h2>
@@ -62,28 +73,66 @@
             </div>
         </section>
 
-        <section id="countdown">
-            <h2 class="countdown-eyebrow">Faltan</h2>
-            <div class="countdown-fecha">14 de Febrero 2026</div>
-            <div class="countdown-timer">
-                <div class="countdown-bloque">
-                    <span id="cd-dias">00</span>
-                    <label>Días</label>
+        <section id="countdown" class="hidden">
+            <div class="countdown-texture"></div>
+            <img src="img/rama-izq.png" class="countdown-decoracion countdown-decoracion-izq" alt="">
+            <img src="img/rama-der.png" class="countdown-decoracion countdown-decoracion-der" alt="">
+
+            <div class="countdown-inner">
+                <div class="countdown-text">
+                    <h2 class="countdown-eyebrow">
+                        <span class="eyebrow-rama eyebrow-rama-izq"></span>
+                        Acompáñanos en este gran día
+                        <span class="eyebrow-rama eyebrow-rama-der"></span>
+                    </h2>
+                    <div class="countdown-fecha">4 de Diciembre 2026</div>
+                    <div class="countdown-timer">
+                        <div class="countdown-bloque">
+                            <div class="countdown-marco">
+                                <span id="cd-dias">00</span>
+                            </div>
+                            <label>Días</label>
+                        </div>
+                        <div class="countdown-separador">:</div>
+                        <div class="countdown-bloque">
+                            <div class="countdown-marco">
+                                <span id="cd-horas">00</span>
+                            </div>
+                            <label>Horas</label>
+                        </div>
+                        <div class="countdown-separador">:</div>
+                        <div class="countdown-bloque">
+                            <div class="countdown-marco">
+                                <span id="cd-minutos">00</span>
+                            </div>
+                            <label>Min</label>
+                        </div>
+                        <div class="countdown-separador">:</div>
+                        <div class="countdown-bloque">
+                            <div class="countdown-marco">
+                                <span id="cd-segundos">00</span>
+                            </div>
+                            <label>Seg</label>
+                        </div>
+                    </div>
                 </div>
-                <div class="countdown-separador">:</div>
-                <div class="countdown-bloque">
-                    <span id="cd-horas">00</span>
-                    <label>Horas</label>
+
+                <div class="countdown-conector" id="countdown-conector">
+                    <span class="conector-linea"></span>
+                    <span class="conector-diamante">◆</span>
+                    <span class="conector-linea"></span>
                 </div>
-                <div class="countdown-separador">:</div>
-                <div class="countdown-bloque">
-                    <span id="cd-minutos">00</span>
-                    <label>Min</label>
-                </div>
-                <div class="countdown-separador">:</div>
-                <div class="countdown-bloque">
-                    <span id="cd-segundos">00</span>
-                    <label>Seg</label>
+
+                <div class="countdown-calendario">
+                    <span class="calendario-titulo">Reserva la fecha</span>
+                    <div class="calendario-header">
+                        <span class="calendario-mes">Diciembre</span>
+                        <span class="calendario-anio">2026</span>
+                    </div>
+                    <div class="calendario-dias-semana">
+                        <span>D</span><span>L</span><span>M</span><span>M</span><span>J</span><span>V</span><span>S</span>
+                    </div>
+                    <div class="calendario-grid" id="calendario-grid"></div>
                 </div>
             </div>
         </section>

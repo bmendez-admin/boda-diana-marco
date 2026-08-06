@@ -61,6 +61,7 @@ function initSobre() {
     const sobreContainer = document.getElementById('sobre-container');
     const instruccion = document.querySelector('.sobre-instruccion');
     const solapaAnimada = document.getElementById('sobre-solapa-animada');
+    const sombra = document.getElementById('sobre-sombra');
 
     gsap.set(solapaAnimada, { rotateX: 0 });
 
@@ -99,23 +100,29 @@ function initSobre() {
         const tl = gsap.timeline();
 
         tl.to(instruccion, { opacity: 0, duration: 0.2 })
-          .to('.sobre-header', { opacity: 0, y: -15, duration: 0.35, ease: 'power2.in' }, '-=0.1')
-          .to(solapaAnimada, { rotateX: -160, duration: 0.9, ease: 'power2.inOut' })
-          .to('#sobre', { y: -20, scale: 1.04, duration: 0.35, ease: 'power1.out' }, '-=0.3')
-          .to(sobreContainer, {
-              opacity: 0,
-              duration: 0.5,
-              ease: 'power2.in',
-              onComplete: function() {
-                  sobreContainer.style.display = 'none';
-                  const hero = document.getElementById('hero');
-                  if (hero) {
-                      hero.classList.remove('hidden');
-                      initHero();
-                      initCountdown();
-                  }
-              }
-          });
+            .to('.sobre-header', { opacity: 0, y: -15, duration: 0.35, ease: 'power2.in' }, '-=0.1')
+            .to(sombra, { opacity: 1, width: '85%', duration: 0.4, ease: 'power2.out' }, '-=0.1')
+            .to(solapaAnimada, { rotateX: -160, duration: 0.9, ease: 'power2.inOut' }, '-=0.3')
+            .to(sombra, { opacity: 0, duration: 0.3, ease: 'power1.in' }, '-=0.2')
+            .to('#sobre', { y: -20, scale: 1.04, duration: 0.35, ease: 'power1.out' }, '-=0.3')
+            .to(sobreContainer, {
+                opacity: 0,
+                duration: 0.5,
+                ease: 'power2.in',
+                onComplete: function () {
+                    sobreContainer.style.display = 'none';
+                    const hero = document.getElementById('hero');
+                    const countdown = document.getElementById('countdown');
+                    if (hero) {
+                        hero.classList.remove('hidden');
+                        initHero();
+                    }
+                    if (countdown) {
+                        countdown.classList.remove('hidden');
+                        initCountdown();
+                    }
+                }
+            });
     });
 }
 
@@ -123,10 +130,10 @@ function initHero() {
     const tl = gsap.timeline();
 
     tl.fromTo('#hero', { opacity: 0 }, { opacity: 1, duration: 0.6, ease: 'power2.out' })
-      .fromTo('.hero-script', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.2')
-      .fromTo('.hero-nombres', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 1.0, ease: 'power3.out' }, '-=0.4')
-      .fromTo('.hero-frase', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.5')
-      .fromTo('.hero-scroll', { opacity: 0 }, { opacity: 1, duration: 0.6, ease: 'power2.out' }, '-=0.2');
+        .fromTo('.hero-script', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.2')
+        .fromTo('.hero-nombres', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 1.0, ease: 'power3.out' }, '-=0.4')
+        .fromTo('.hero-frase', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.5')
+        .fromTo('.hero-scroll', { opacity: 0 }, { opacity: 1, duration: 0.6, ease: 'power2.out' }, '-=0.2');
 
     gsap.to('.hero-scroll', { y: 8, repeat: -1, yoyo: true, duration: 0.9, ease: 'power1.inOut', delay: 2 });
 }
@@ -140,7 +147,7 @@ function initCountdown() {
 
     if (!diasEl || !horasEl || !minutosEl || !segundosEl) return;
 
-    const fechaBoda = new Date('2026-02-14T19:00:00');
+    const fechaBoda = new Date('2026-12-04T19:00:00');
 
     function actualizar() {
         const ahora = new Date();
