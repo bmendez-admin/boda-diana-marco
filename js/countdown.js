@@ -43,7 +43,11 @@ function animarEntradaCountdown() {
                 }, '-=0.2')
                 .to('.countdown-separador', { opacity: 1, duration: 0.3 }, '-=0.6')
                 .to('.countdown-conector', { opacity: 1, duration: 0.6, ease: 'power2.out' }, '-=0.4')
-                .to('.countdown-calendario', { opacity: 1, duration: 0.8, ease: 'power2.out' }, '-=0.5');
+                .to('.countdown-calendario', { opacity: 1, duration: 0.8, ease: 'power2.out' }, '-=0.5')
+                .call(() => {
+                    revealTimeline();
+                    revealItinerario();
+                });
         }
     });
 }

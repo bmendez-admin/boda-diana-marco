@@ -46,7 +46,9 @@ function initTimeline() {
     });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+function revealTimeline() {
+    const timeline = document.getElementById('timeline');
+    timeline.classList.add('timeline-visible');
     gsap.registerPlugin(ScrollTrigger);
     initTimeline();
-});
+}
