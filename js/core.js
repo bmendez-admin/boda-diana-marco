@@ -8,7 +8,9 @@ async function validarInvitado(token) {
         await new Promise(r => setTimeout(r, 600));
         return MOCK_INVITADO;
     }
-    const res = await fetch(`${API_URL}?action=getInvitado&token=${token}&key=${API_KEY_PUBLIC}`);
+    const res = await fetch(`${API_URL}?action=getInvitado&token=${token}&key=${API_KEY_PUBLIC}&_=${Date.now()}`, {
+    cache: 'no-store'
+    });
     const json = await res.json();
     return json;
 }
