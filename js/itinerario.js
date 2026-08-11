@@ -86,6 +86,7 @@ function revealItinerario() {
     const itinerario = document.getElementById('itinerario');
     itinerario.classList.add('itinerario-visible');
     initItinerario();
+    revealUbicacion();
 }
 
 window.addEventListener('load', () => {
