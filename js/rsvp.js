@@ -310,4 +310,5 @@ function revealRsvp() {
   const rsvp = document.getElementById("rsvp");
   rsvp.classList.add("rsvp-visible");
   initRsvp();
+  initFooter();
 }

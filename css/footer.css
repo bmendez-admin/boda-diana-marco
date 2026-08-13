@@ -1,0 +1,55 @@
+#footer {
+    padding: 80px 24px;
+    text-align: center;
+    background-color: var(--fondo-claro);
+}
+
+.footer-inner {
+    max-width: 500px;
+    margin: 0 auto;
+    opacity: 0;
+}
+
+.footer-monograma {
+    font-family: var(--font-script);
+    font-size: 48px;
+    color: var(--color-carbon);
+    margin-bottom: 8px;
+}
+
+.footer-fecha {
+    font-family: var(--font-body);
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-tierra);
+    margin-bottom: 24px;
+}
+
+.footer-mensaje {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-style: italic;
+    line-height: 1.7;
+    color: var(--color-carbon);
+    margin-bottom: 32px;
+}
+
+.footer-linea {
+    width: 60px;
+    height: 1px;
+    background-color: var(--color-taupe);
+    margin: 0 auto 24px;
+}
+
+.footer-contacto {
+    font-family: var(--font-body);
+    font-size: 13px;
+    color: var(--color-tierra);
+}
+
+.footer-contacto a {
+    color: var(--color-carbon);
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-taupe);
+}
