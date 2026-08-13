@@ -1,3 +1,8 @@
+window.scrollTo(0, 0);
+window.addEventListener('pageshow', (e) => {
+    if (e.persisted) window.scrollTo(0, 0);
+});
+
 function getTokenFromURL() {
     const params = new URLSearchParams(window.location.search);
     return params.get('id');
