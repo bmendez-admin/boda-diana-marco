@@ -261,3 +261,37 @@
         right: 20px;
     }
 }
+
+.galeria-item-vermas {
+    position: relative;
+    cursor: pointer;
+}
+
+.galeria-img-oscura {
+    filter: brightness(0.45);
+}
+
+.galeria-vermas-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    color: var(--color-crema);
+    pointer-events: none;
+}
+
+.galeria-vermas-icono {
+    font-size: 32px;
+    font-weight: 300;
+    line-height: 1;
+}
+
+.galeria-vermas-texto {
+    font-family: var(--font-body);
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
