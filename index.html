@@ -1,1058 +1,795 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <script>
-      if ("scrollRestoration" in history) {
-        history.scrollRestoration = "manual";
-      }
-    </script>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="noindex, nofollow" />
-    <title>Diana & Marco — Nuestra Boda</title>
-    <link rel="stylesheet" href="css/global.css" />
-    <link rel="stylesheet" href="css/sobre.css" />
-    <link rel="stylesheet" href="css/hero.css" />
-    <link rel="stylesheet" href="css/countdown.css" />
-    <link rel="stylesheet" href="css/timeline.css" />
-    <link rel="stylesheet" href="css/itinerario.css" />
-    <link rel="stylesheet" href="css/ubicacion.css" />
-    <link rel="stylesheet" href="css/detalles.css" />
-    <link rel="stylesheet" href="css/galeria.css" />
-    <link rel="stylesheet" href="css/regalos.css" />
-    <link rel="stylesheet" href="css/rsvp.css" />
-    <link rel="stylesheet" href="css/footer.css" />
-    <link rel="stylesheet" href="css/musica.css" />
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
-      defer
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
-      defer
-    ></script>
-    <script src="js/config.js" defer></script>
-    <script src="js/core.js" defer></script>
-    <script src="js/sobre.js" defer></script>
-    <script src="js/hero.js" defer></script>
-    <script src="js/countdown.js" defer></script>
-    <script src="js/timeline.js" defer></script>
-    <script src="js/itinerario.js" defer></script>
-    <script src="js/ubicacion.js" defer></script>
-    <script src="js/detalles.js" defer></script>
-    <script src="js/galeria.js" defer></script>
-    <script src="js/regalos.js" defer></script>
-    <script src="js/rsvp.js" defer></script>
-    <script src="js/footer.js" defer></script>
-    <script src="js/musica.js" defer></script>
-  </head>
 
-  <body>
-    <div id="pantalla-error" class="hidden">
-      <div class="icono">💌</div>
-      <h1>Link no válido</h1>
-      <p>
-        Este link de invitación no existe o ya no está disponible. Si crees que
-        es un error, contacta a Diana y Marco.
+<head>
+  <script>
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
+    }
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Diana & Marco — Nuestra Boda</title>
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/sobre.css" />
+  <link rel="stylesheet" href="css/hero.css" />
+  <link rel="stylesheet" href="css/countdown.css" />
+  <link rel="stylesheet" href="css/timeline.css" />
+  <link rel="stylesheet" href="css/itinerario.css" />
+  <link rel="stylesheet" href="css/ubicacion.css" />
+  <link rel="stylesheet" href="css/detalles.css" />
+  <link rel="stylesheet" href="css/galeria.css" />
+  <link rel="stylesheet" href="css/regalos.css" />
+  <link rel="stylesheet" href="css/rsvp.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <link rel="stylesheet" href="css/musica.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="js/config.js" defer></script>
+  <script src="js/core.js" defer></script>
+  <script src="js/sobre.js" defer></script>
+  <script src="js/hero.js" defer></script>
+  <script src="js/countdown.js" defer></script>
+  <script src="js/timeline.js" defer></script>
+  <script src="js/itinerario.js" defer></script>
+  <script src="js/ubicacion.js" defer></script>
+  <script src="js/detalles.js" defer></script>
+  <script src="js/galeria.js" defer></script>
+  <script src="js/regalos.js" defer></script>
+  <script src="js/rsvp.js" defer></script>
+  <script src="js/footer.js" defer></script>
+  <script src="js/musica.js" defer></script>
+</head>
+
+<body>
+  <div id="pantalla-error" class="hidden">
+    <div class="icono">💌</div>
+    <h1>Link no válido</h1>
+    <p>
+      Este link de invitación no existe o ya no está disponible. Si crees que
+      es un error, contacta a Diana y Marco.
+    </p>
+  </div>
+
+  <div id="pantalla-ya-confirmo" class="hidden">
+    <img src="img/rama-izq.png" class="ya-confirmo-decoracion ya-confirmo-decoracion-izq" alt="">
+    <img src="img/rama-der.png" class="ya-confirmo-decoracion ya-confirmo-decoracion-der" alt="">
+    <div class="ya-confirmo-sello">D&M</div>
+    <span class="ya-confirmo-script">Con amor confirmado</span>
+    <h1>¡Ya tienes tu lugar!</h1>
+    <p>Ya confirmaste tu asistencia anteriormente. ¡Nos vemos el gran día!</p>
+    <button class="ya-confirmo-btn" id="ver-confirmacion-btn">Ver mi confirmación</button>
+  </div>
+
+  <div id="invitacion">
+    <section id="sobre-container">
+      <div class="sobre-header">
+        <span class="sobre-header-script">Con amor los invitan</span>
+        <span class="sobre-header-nombres">Diana & Marco</span>
+        <span class="sobre-header-linea"></span>
+      </div>
+
+      <div id="sobre">
+        <div class="sobre-imagen-wrapper">
+          <img src="img/sobre.png" alt="Sobre de invitación" class="sobre-img" id="sobre-img" />
+          <div class="sobre-sombra-apertura" id="sobre-sombra"></div>
+          <div class="sobre-solapa-animada" id="sobre-solapa-animada">
+            <img src="img/sobre-solapa.png" alt="" class="sobre-solapa-img" />
+            <img src="img/sello-cera.png" alt="Sello" class="sobre-sello" />
+            <div class="sobre-iniciales">D&M</div>
+          </div>
+        </div>
+      </div>
+
+      <p class="sobre-instruccion">Toca para abrir tu invitación</p>
+      <img src="img/rama-izq.png" class="decoracion-esquina esquina-superior-izq" alt="" />
+      <img src="img/rama-der.png" class="decoracion-esquina esquina-inferior-der" alt="" />
+    </section>
+
+    <section id="hero" class="hidden">
+      <div class="hero-imagen-wrapper" id="hero-imagen-wrapper">
+        <img src="img/hero.png" alt="Diana y Marco" class="hero-img" id="hero-img" />
+      </div>
+      <div class="hero-grano"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h2 class="hero-script">Nuestra Boda</h2>
+        <h1 class="hero-nombres">Diana & Marco</h1>
+        <p class="hero-frase">
+          El mejor viaje de nuestras vidas está a punto de comenzar
+        </p>
+        <div class="hero-scroll">↓</div>
+      </div>
+    </section>
+
+    <section id="countdown" class="hidden">
+      <div class="countdown-texture"></div>
+      <img src="img/rama-izq.png" class="countdown-decoracion countdown-decoracion-izq" alt="" />
+      <img src="img/rama-der.png" class="countdown-decoracion countdown-decoracion-der" alt="" />
+
+      <div class="countdown-inner">
+        <div class="countdown-text">
+          <h2 class="countdown-eyebrow">
+            <span class="eyebrow-rama eyebrow-rama-izq"></span>
+            Acompáñanos en este gran día
+            <span class="eyebrow-rama eyebrow-rama-der"></span>
+          </h2>
+          <div class="countdown-fecha">4 de Diciembre 2026</div>
+          <div class="countdown-timer">
+            <div class="countdown-bloque">
+              <div class="countdown-marco">
+                <span id="cd-dias">00</span>
+              </div>
+              <label>Días</label>
+            </div>
+            <div class="countdown-separador">:</div>
+            <div class="countdown-bloque">
+              <div class="countdown-marco">
+                <span id="cd-horas">00</span>
+              </div>
+              <label>Horas</label>
+            </div>
+            <div class="countdown-separador">:</div>
+            <div class="countdown-bloque">
+              <div class="countdown-marco">
+                <span id="cd-minutos">00</span>
+              </div>
+              <label>Min</label>
+            </div>
+            <div class="countdown-separador">:</div>
+            <div class="countdown-bloque">
+              <div class="countdown-marco">
+                <span id="cd-segundos">00</span>
+              </div>
+              <label>Seg</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="countdown-conector" id="countdown-conector">
+          <span class="conector-linea"></span>
+          <span class="conector-diamante">◆</span>
+          <span class="conector-linea"></span>
+        </div>
+
+        <div class="countdown-calendario">
+          <span class="calendario-titulo">Reserva la fecha</span>
+          <div class="calendario-header">
+            <span class="calendario-mes">Diciembre</span>
+            <span class="calendario-anio">2026</span>
+          </div>
+          <div class="calendario-dias-semana">
+            <span>D</span><span>L</span><span>M</span><span>M</span><span>J</span><span>V</span><span>S</span>
+          </div>
+          <div class="calendario-grid" id="calendario-grid"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="timeline">
+      <div class="timeline-texture"></div>
+      <img src="img/rama-izq.png" class="timeline-decoracion timeline-decoracion-inicio" alt="" />
+
+      <div class="timeline-inner">
+        <h2 class="timeline-eyebrow">
+          <span class="eyebrow-rama eyebrow-rama-izq"></span>
+          Nuestra Historia
+          <span class="eyebrow-rama eyebrow-rama-der"></span>
+        </h2>
+
+        <div class="timeline-linea"></div>
+
+        <div class="timeline-hito" data-hito="1">
+          <div class="timeline-nodo"></div>
+          <div class="timeline-tarjeta">
+            <img src="https://source.unsplash.com/400x500/?couple,vintage" alt="" class="timeline-foto" />
+            <span class="timeline-anio">2018</span>
+            <h3 class="timeline-titulo">Así comenzó todo</h3>
+            <p class="timeline-descripcion">
+              Un encuentro casual que ninguno de los dos vio venir, pero que
+              cambiaría todo lo que vendría después.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-hito" data-hito="2">
+          <div class="timeline-nodo"></div>
+          <div class="timeline-tarjeta">
+            <img src="https://source.unsplash.com/400x500/?couple,travel" alt="" class="timeline-foto" />
+            <span class="timeline-anio">2020</span>
+            <h3 class="timeline-titulo">Nuestro primer viaje</h3>
+            <p class="timeline-descripcion">
+              Dejamos la rutina atrás y descubrimos que viajar juntos se
+              sentía como estar en casa.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-hito" data-hito="3">
+          <div class="timeline-nodo"></div>
+          <div class="timeline-tarjeta">
+            <img src="https://source.unsplash.com/400x500/?couple,sunset" alt="" class="timeline-foto" />
+            <span class="timeline-anio">2022</span>
+            <h3 class="timeline-titulo">Cuando supe que eras tú</h3>
+            <p class="timeline-descripcion">
+              No hubo un momento exacto, fue la suma de mil pequeños días los
+              que me lo dejaron claro.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-hito" data-hito="4">
+          <div class="timeline-nodo"></div>
+          <div class="timeline-tarjeta">
+            <img src="https://source.unsplash.com/400x500/?couple,proposal" alt="" class="timeline-foto" />
+            <span class="timeline-anio">2024</span>
+            <h3 class="timeline-titulo">La pregunta más importante</h3>
+            <p class="timeline-descripcion">
+              Con el corazón latiendo más fuerte que nunca, hice la pregunta
+              que llevaba tiempo guardando.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-hito" data-hito="5">
+          <div class="timeline-nodo"></div>
+          <div class="timeline-tarjeta">
+            <img src="https://source.unsplash.com/400x500/?couple,wedding" alt="" class="timeline-foto" />
+            <span class="timeline-anio">2026</span>
+            <h3 class="timeline-titulo">Nuestro sí, para siempre</h3>
+            <p class="timeline-descripcion">
+              El día en que dos historias se convirtieron en una sola, para
+              siempre.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <img src="img/rama-der.png" class="timeline-decoracion timeline-decoracion-fin" alt="" />
+    </section>
+
+    <section id="itinerario">
+      <div class="itinerario-pin-wrapper">
+        <div class="itinerario-texture"></div>
+
+        <h2 class="itinerario-eyebrow">
+          <span class="eyebrow-rama eyebrow-rama-izq"></span>
+          El Gran Día
+          <span class="eyebrow-rama eyebrow-rama-der"></span>
+        </h2>
+
+        <div class="itinerario-track">
+          <div class="itinerario-linea"></div>
+
+          <div class="itinerario-evento" data-evento="1">
+            <div class="itinerario-nodo"></div>
+            <div class="itinerario-tarjeta">
+              <div class="itinerario-icono" data-icono="ceremonia"></div>
+              <span class="itinerario-hora">7:00 PM</span>
+              <h3 class="itinerario-nombre">Ceremonia</h3>
+            </div>
+          </div>
+
+          <div class="itinerario-evento" data-evento="2">
+            <div class="itinerario-nodo"></div>
+            <div class="itinerario-tarjeta">
+              <div class="itinerario-icono" data-icono="coctel"></div>
+              <span class="itinerario-hora">8:00 PM</span>
+              <h3 class="itinerario-nombre">Cóctel de Bienvenida</h3>
+            </div>
+          </div>
+
+          <div class="itinerario-evento" data-evento="3">
+            <div class="itinerario-nodo"></div>
+            <div class="itinerario-tarjeta">
+              <div class="itinerario-icono" data-icono="recepcion"></div>
+              <span class="itinerario-hora">9:00 PM</span>
+              <h3 class="itinerario-nombre">Recepción</h3>
+            </div>
+          </div>
+
+          <div class="itinerario-evento" data-evento="4">
+            <div class="itinerario-nodo"></div>
+            <div class="itinerario-tarjeta">
+              <div class="itinerario-icono" data-icono="baile"></div>
+              <span class="itinerario-hora">10:00 PM</span>
+              <h3 class="itinerario-nombre">Primer Baile</h3>
+            </div>
+          </div>
+
+          <div class="itinerario-evento" data-evento="5">
+            <div class="itinerario-nodo"></div>
+            <div class="itinerario-tarjeta">
+              <div class="itinerario-icono" data-icono="fiesta"></div>
+              <span class="itinerario-hora">10:30 PM</span>
+              <h3 class="itinerario-nombre">Fiesta</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ubicacion">
+      <div class="ubicacion-marco">
+        <span class="ubicacion-marco-esquina esquina-tl"></span>
+        <span class="ubicacion-marco-esquina esquina-tr"></span>
+        <span class="ubicacion-marco-esquina esquina-bl"></span>
+        <span class="ubicacion-marco-esquina esquina-br"></span>
+
+        <h2 class="ubicacion-eyebrow">
+          <span class="ubicacion-eyebrow-linea"></span>
+          <span class="ubicacion-eyebrow-diamante">◆</span>
+          Ubicaciones
+          <span class="ubicacion-eyebrow-diamante">◆</span>
+          <span class="ubicacion-eyebrow-linea derecha"></span>
+        </h2>
+
+        <div class="ubicacion-lista">
+          <div class="ticket">
+            <div class="ticket-mapa">
+              <img src="img/Ubicacion_Templo.png" alt="Mapa Basílica de Zapopan" class="ticket-mapa-img" />
+              <span class="ticket-numero">01</span>
+            </div>
+            <div class="ticket-muesca ticket-muesca-arriba"></div>
+            <div class="ticket-muesca ticket-muesca-abajo"></div>
+            <div class="ticket-info">
+              <span class="ticket-sello">
+                <span class="ticket-sello-texto">D&M</span>
+                <span class="ticket-sello-fecha">04.12.2026</span>
+              </span>
+              <div class="ticket-info-header">
+                <span class="ticket-tipo">Ceremonia</span>
+                <span class="ticket-hora">7:00 PM</span>
+              </div>
+              <h3 class="ticket-nombre">Basílica de Zapopan</h3>
+              <p class="ticket-direccion">
+                Eva Briseño 152, Zapopan Centro, Zapopan, Jalisco
+              </p>
+              <div class="ticket-botones">
+                <a href="https://www.google.com/maps/search/?api=1&query=Basilica+de+Zapopan" target="_blank"
+                  class="ticket-btn">Google Maps</a>
+                <a href="https://waze.com/ul?q=Basilica%20de%20Zapopan&navigate=yes" target="_blank"
+                  class="ticket-btn">Waze</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="ubicacion-conector">
+            <svg viewBox="0 0 200 90" preserveAspectRatio="none">
+              <path d="M 25 10 C 25 60, 175 20, 175 80" fill="none" stroke="#C9A96E" stroke-width="1.5"
+                stroke-dasharray="5 6" opacity="0.7" />
+              <circle cx="25" cy="10" r="4" fill="#B8860B" />
+              <circle cx="175" cy="80" r="4" fill="#B8860B" />
+            </svg>
+          </div>
+
+          <div class="ticket ticket-espejo">
+            <div class="ticket-mapa">
+              <img src="img/Ubicacion_Salon.png" alt="Mapa Hacienda La Magdalena" class="ticket-mapa-img" />
+              <span class="ticket-numero">02</span>
+            </div>
+            <div class="ticket-muesca ticket-muesca-arriba"></div>
+            <div class="ticket-muesca ticket-muesca-abajo"></div>
+            <div class="ticket-info">
+              <span class="ticket-sello">
+                <span class="ticket-sello-texto">D&M</span>
+                <span class="ticket-sello-fecha">04.12.2026</span>
+              </span>
+              <div class="ticket-info-header">
+                <span class="ticket-tipo">Recepción</span>
+                <span class="ticket-hora">9:00 PM</span>
+              </div>
+              <h3 class="ticket-nombre">Hacienda La Magdalena</h3>
+              <p class="ticket-direccion">
+                Km 1.7 Carretera Tesistán-Tolotlán, Zapopan, Jalisco
+              </p>
+              <div class="ticket-botones">
+                <a href="https://www.google.com/maps/search/?api=1&query=Hacienda+La+Magdalena+Zapopan" target="_blank"
+                  class="ticket-btn">Google Maps</a>
+                <a href="https://waze.com/ul?q=Hacienda%20La%20Magdalena%20Zapopan&navigate=yes" target="_blank"
+                  class="ticket-btn">Waze</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="detalles">
+      <h2 class="detalles-eyebrow">
+        <span class="detalles-eyebrow-linea"></span>
+        <span class="detalles-eyebrow-diamante">◆</span>
+        Detalles
+        <span class="detalles-eyebrow-diamante">◆</span>
+        <span class="detalles-eyebrow-linea derecha"></span>
+      </h2>
+
+      <p class="detalles-frase">
+        Los pequeños detalles hacen la gran diferencia
+      </p>
+
+      <div class="detalles-grid">
+        <div class="detalles-columna">
+          <div class="detalle-item">
+            <span class="detalle-numero-fondo">01</span>
+            <button class="detalle-pregunta" data-detalle="1">
+              <svg class="detalle-icono-svg" viewBox="0 0 40 40" fill="none">
+                <path d="M20 8 L20 12 M20 12 C14 12 14 18 20 18 C26 18 26 12 20 12 M6 30 L20 18 L34 30 L34 34 L6 34 Z"
+                  stroke="#B8860B" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <span class="detalle-numero">01</span>
+              <span class="detalle-titulo">Código de vestimenta</span>
+              <span class="detalle-icono">+</span>
+            </button>
+            <div class="detalle-respuesta">
+              <p>
+                Formal / Etiqueta rigurosa. Ellas vestido largo, ellos traje
+                oscuro. Pedimos evitar el blanco y tonos tierra para no
+                coincidir con la decoración.
+              </p>
+            </div>
+          </div>
+
+          <div class="detalle-item">
+            <span class="detalle-numero-fondo">03</span>
+            <button class="detalle-pregunta" data-detalle="3">
+              <svg class="detalle-icono-svg" viewBox="0 0 40 40" fill="none">
+                <circle cx="20" cy="20" r="13" stroke="#B8860B" stroke-width="1.4" />
+                <path d="M11 29 L29 11" stroke="#B8860B" stroke-width="1.4" stroke-linecap="round" />
+              </svg>
+              <span class="detalle-numero">03</span>
+              <span class="detalle-titulo">¿Los niños están invitados?</span>
+              <span class="detalle-icono">+</span>
+            </button>
+            <div class="detalle-respuesta">
+              <p>
+                Con mucho cariño, hemos decidido que nuestra celebración sea
+                solo para adultos. Agradecemos su comprensión y esperamos que
+                puedan disfrutar la noche con nosotros.
+              </p>
+            </div>
+          </div>
+
+          <div class="detalle-item">
+            <span class="detalle-numero-fondo">05</span>
+            <button class="detalle-pregunta" data-detalle="5">
+              <svg class="detalle-icono-svg" viewBox="0 0 40 40" fill="none">
+                <rect x="8" y="16" width="24" height="18" stroke="#B8860B" stroke-width="1.4" />
+                <path d="M8 22 L32 22 M20 16 L20 34" stroke="#B8860B" stroke-width="1.4" />
+                <path d="M20 16 C14 16 13 10 17 9 C20 8 20 13 20 16 C20 13 20 8 23 9 C27 10 26 16 20 16 Z"
+                  stroke="#B8860B" stroke-width="1.4" />
+              </svg>
+              <span class="detalle-numero">05</span>
+              <span class="detalle-titulo">Mesa de regalos</span>
+              <span class="detalle-icono">+</span>
+            </button>
+            <div class="detalle-respuesta">
+              <p>
+                Tu presencia es el mejor regalo que podemos recibir. Si deseas
+                obsequiarnos algo, hemos preparado una mesa de regalos que
+                podrás consultar más abajo en esta invitación.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="detalles-divisor"></div>
+
+        <div class="detalles-columna">
+          <div class="detalle-item">
+            <span class="detalle-numero-fondo">02</span>
+            <button class="detalle-pregunta" data-detalle="2">
+              <svg class="detalle-icono-svg" viewBox="0 0 40 40" fill="none">
+                <circle cx="20" cy="18" r="8" stroke="#B8860B" stroke-width="1.4" />
+                <path
+                  d="M20 4 L20 7 M20 29 L20 32 M6 18 L9 18 M31 18 L34 18 M10 8 L12 10 M28 26 L30 28 M10 28 L12 26 M28 10 L30 8"
+                  stroke="#B8860B" stroke-width="1.4" stroke-linecap="round" />
+              </svg>
+              <span class="detalle-numero">02</span>
+              <span class="detalle-titulo">Clima y temporada</span>
+              <span class="detalle-icono">+</span>
+            </button>
+            <div class="detalle-respuesta">
+              <p>
+                Diciembre en Zapopan es templado durante el día y fresco por
+                la noche. Recomendamos llevar un abrigo ligero para después de
+                las 9:00 PM.
+              </p>
+            </div>
+          </div>
+
+          <div class="detalle-item">
+            <span class="detalle-numero-fondo">04</span>
+            <button class="detalle-pregunta" data-detalle="4">
+              <svg class="detalle-icono-svg" viewBox="0 0 40 40" fill="none">
+                <path d="M8 24 L10 15 C11 13 12 12 15 12 L25 12 C28 12 29 13 30 15 L32 24" stroke="#B8860B"
+                  stroke-width="1.4" stroke-linejoin="round" />
+                <rect x="6" y="24" width="28" height="7" rx="1" stroke="#B8860B" stroke-width="1.4" />
+                <circle cx="12" cy="31" r="2" stroke="#B8860B" stroke-width="1.4" />
+                <circle cx="28" cy="31" r="2" stroke="#B8860B" stroke-width="1.4" />
+              </svg>
+              <span class="detalle-numero">04</span>
+              <span class="detalle-titulo">Estacionamiento y transporte</span>
+              <span class="detalle-icono">+</span>
+            </button>
+            <div class="detalle-respuesta">
+              <p>
+                Ambas sedes cuentan con estacionamiento propio y servicio de
+                valet parking sin costo. Si prefieres no manejar, contaremos
+                con transporte disponible entre la ceremonia y la recepción.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="galeria">
+      <h2 class="galeria-eyebrow">
+        <span class="galeria-eyebrow-linea"></span>
+        <span class="galeria-eyebrow-diamante">◆</span>
+        Galería
+        <span class="galeria-eyebrow-diamante">◆</span>
+        <span class="galeria-eyebrow-linea derecha"></span>
+      </h2>
+
+      <div class="galeria-grid">
+        <div class="galeria-item" data-index="0">
+          <img src="img/galeria-01.jpg" alt="Diana y Marco" class="galeria-img" />
+        </div>
+        <div class="galeria-item" data-index="1">
+          <img src="img/galeria-02.jpg" alt="Diana y Marco" class="galeria-img" />
+        </div>
+        <div class="galeria-item" data-index="2">
+          <img src="img/galeria-03.jpg" alt="Diana y Marco" class="galeria-img" />
+        </div>
+        <div class="galeria-item" data-index="3">
+          <img src="img/galeria-04.jpg" alt="Diana y Marco" class="galeria-img" />
+        </div>
+        <div class="galeria-item" data-index="4">
+          <img src="img/galeria-05.jpg" alt="Diana y Marco" class="galeria-img" />
+        </div>
+        <div class="galeria-item" data-index="5">
+          <img src="img/galeria-06.jpg" alt="Diana y Marco" class="galeria-img" />
+        </div>
+        <div class="galeria-item" data-index="6">
+          <img src="img/galeria-07.jpg" alt="Diana y Marco" class="galeria-img" />
+        </div>
+        <div class="galeria-item" data-index="7">
+          <img src="img/galeria-08.jpg" alt="Diana y Marco" class="galeria-img" />
+        </div>
+      </div>
+    </section>
+
+    <div class="lightbox" id="lightbox">
+      <button class="lightbox-cerrar" id="lightbox-cerrar">✕</button>
+      <button class="lightbox-nav lightbox-prev" id="lightbox-prev">‹</button>
+      <img src="" alt="" class="lightbox-img" id="lightbox-img" />
+      <button class="lightbox-nav lightbox-next" id="lightbox-next">›</button>
+    </div>
+  </div>
+
+  <section id="regalos">
+    <div class="regalos-marco">
+      <span class="regalos-marco-esquina esquina-tl"></span>
+      <span class="regalos-marco-esquina esquina-tr"></span>
+      <span class="regalos-marco-esquina esquina-bl"></span>
+      <span class="regalos-marco-esquina esquina-br"></span>
+
+      <h2 class="regalos-eyebrow">
+        <span class="regalos-eyebrow-linea"></span>
+        <span class="regalos-eyebrow-diamante">◆</span>
+        Mesa de Regalos
+        <span class="regalos-eyebrow-diamante">◆</span>
+        <span class="regalos-eyebrow-linea derecha"></span>
+      </h2>
+
+      <p class="regalos-frase">
+        Tu presencia es nuestro mejor regalo, pero si deseas obsequiarnos algo
+        más, aquí tienes algunas opciones
+      </p>
+
+      <div class="regalos-grid">
+        <a href="#" target="_blank" class="regalo-card">
+          <span class="regalo-numero-fondo">01</span>
+          <svg class="regalo-icono" viewBox="0 0 40 40" fill="none">
+            <rect x="8" y="16" width="24" height="18" stroke="#B8860B" stroke-width="1.4" />
+            <path d="M8 22 L32 22 M20 16 L20 34" stroke="#B8860B" stroke-width="1.4" />
+            <path d="M20 16 C14 16 13 10 17 9 C20 8 20 13 20 16 C20 13 20 8 23 9 C27 10 26 16 20 16 Z" stroke="#B8860B"
+              stroke-width="1.4" />
+          </svg>
+          <span class="regalo-tienda">Liverpool</span>
+          <span class="regalo-desc">Mesa de regalos física y en línea</span>
+          <span class="regalo-btn">Ver mesa</span>
+        </a>
+
+        <a href="#" target="_blank" class="regalo-card">
+          <span class="regalo-numero-fondo">02</span>
+          <svg class="regalo-icono" viewBox="0 0 40 40" fill="none">
+            <rect x="8" y="16" width="24" height="18" stroke="#B8860B" stroke-width="1.4" />
+            <path d="M8 22 L32 22 M20 16 L20 34" stroke="#B8860B" stroke-width="1.4" />
+            <path d="M20 16 C14 16 13 10 17 9 C20 8 20 13 20 16 C20 13 20 8 23 9 C27 10 26 16 20 16 Z" stroke="#B8860B"
+              stroke-width="1.4" />
+          </svg>
+          <span class="regalo-tienda">Amazon</span>
+          <span class="regalo-desc">Lista de regalos en línea</span>
+          <span class="regalo-btn">Ver mesa</span>
+        </a>
+
+        <a href="#" target="_blank" class="regalo-card">
+          <span class="regalo-numero-fondo">03</span>
+          <svg class="regalo-icono" viewBox="0 0 40 40" fill="none">
+            <rect x="8" y="16" width="24" height="18" stroke="#B8860B" stroke-width="1.4" />
+            <path d="M8 22 L32 22 M20 16 L20 34" stroke="#B8860B" stroke-width="1.4" />
+            <path d="M20 16 C14 16 13 10 17 9 C20 8 20 13 20 16 C20 13 20 8 23 9 C27 10 26 16 20 16 Z" stroke="#B8860B"
+              stroke-width="1.4" />
+          </svg>
+          <span class="regalo-tienda">Sears</span>
+          <span class="regalo-desc">Mesa de regalos física y en línea</span>
+          <span class="regalo-btn">Ver mesa</span>
+        </a>
+      </div>
+
+      <div class="regalo-sobre-panel" id="sobre-toggle">
+        <div class="regalo-sobre-info">
+          <svg class="regalo-sobre-icono" viewBox="0 0 40 40" fill="none">
+            <rect x="6" y="12" width="28" height="20" stroke="#B8860B" stroke-width="1.4" />
+            <path d="M6 12 L20 24 L34 12" stroke="#B8860B" stroke-width="1.4" stroke-linejoin="round" />
+            <circle cx="20" cy="22" r="3" fill="#B8860B" opacity="0.85" />
+          </svg>
+          <div class="regalo-sobre-texto">
+            <span class="regalo-sobre-titulo">¿Prefieres un regalo en efectivo?</span>
+            <span class="regalo-sobre-sub">Puedes hacerlo a través de transferencia bancaria</span>
+          </div>
+        </div>
+        <span class="regalo-sobre-btn">Ver datos <span class="regalo-sobre-flecha">→</span></span>
+      </div>
+
+      <div class="sobre-datos" id="sobre-datos">
+        <div class="sobre-datos-info">
+          <div class="sobre-dato">
+            <span class="sobre-dato-label">Banco</span>
+            <span class="sobre-dato-valor">BBVA</span>
+          </div>
+          <div class="sobre-dato">
+            <span class="sobre-dato-label">Titular</span>
+            <span class="sobre-dato-valor">Diana [Apellido]</span>
+          </div>
+          <div class="sobre-dato">
+            <span class="sobre-dato-label">CLABE</span>
+            <span class="sobre-dato-valor">0000 0000 0000 0000</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="rsvp">
+    <div class="rsvp-marco">
+      <span class="rsvp-marco-esquina esquina-tl"></span>
+      <span class="rsvp-marco-esquina esquina-tr"></span>
+      <span class="rsvp-marco-esquina esquina-bl"></span>
+      <span class="rsvp-marco-esquina esquina-br"></span>
+
+      <p class="rsvp-script">Nos encantaría contar contigo</p>
+      <h2 class="rsvp-titulo">Confirma tu asistencia</h2>
+      <p class="rsvp-fecha-limite">Antes del 15 de noviembre de 2026</p>
+      <button class="rsvp-btn-abrir" id="rsvp-abrir">Confirmar ahora</button>
+    </div>
+  </section>
+
+  <section id="footer">
+    <div class="footer-inner">
+      <div class="footer-monograma">D & M</div>
+      <p class="footer-fecha">4 de Diciembre 2026</p>
+      <p class="footer-mensaje">
+        Gracias por ser parte de nuestra historia.<br />Los esperamos con todo
+        el amor del mundo en este día tan especial.
+      </p>
+      <div class="footer-linea"></div>
+      <p class="footer-contacto">
+        ¿Alguna duda? Escríbenos: <a href="tel:+523312345678">33 1234 5678</a>
       </p>
     </div>
+  </section>
 
-    <div id="pantalla-ya-confirmo" class="hidden">
-      <div class="icono">✨</div>
-      <h1>¡Ya tienes tu lugar!</h1>
-      <p>Ya confirmaste tu asistencia anteriormente. ¡Nos vemos el gran día!</p>
-    </div>
+  <div class="rsvp-modal" id="rsvp-modal">
+    <div class="rsvp-modal-contenido">
+      <button class="rsvp-cerrar" id="rsvp-cerrar">✕</button>
 
-    <div id="invitacion">
-      <section id="sobre-container">
-        <div class="sobre-header">
-          <span class="sobre-header-script">Con amor los invitan</span>
-          <span class="sobre-header-nombres">Diana & Marco</span>
-          <span class="sobre-header-linea"></span>
-        </div>
-
-        <div id="sobre">
-          <div class="sobre-imagen-wrapper">
-            <img
-              src="img/sobre.png"
-              alt="Sobre de invitación"
-              class="sobre-img"
-              id="sobre-img"
-            />
-            <div class="sobre-sombra-apertura" id="sobre-sombra"></div>
-            <div class="sobre-solapa-animada" id="sobre-solapa-animada">
-              <img src="img/sobre-solapa.png" alt="" class="sobre-solapa-img" />
-              <img src="img/sello-cera.png" alt="Sello" class="sobre-sello" />
-              <div class="sobre-iniciales">D&M</div>
-            </div>
-          </div>
-        </div>
-
-        <p class="sobre-instruccion">Toca para abrir tu invitación</p>
-        <img
-          src="img/rama-izq.png"
-          class="decoracion-esquina esquina-superior-izq"
-          alt=""
-        />
-        <img
-          src="img/rama-der.png"
-          class="decoracion-esquina esquina-inferior-der"
-          alt=""
-        />
-      </section>
-
-      <section id="hero" class="hidden">
-        <div class="hero-imagen-wrapper" id="hero-imagen-wrapper">
-          <img
-            src="img/hero.png"
-            alt="Diana y Marco"
-            class="hero-img"
-            id="hero-img"
-          />
-        </div>
-        <div class="hero-grano"></div>
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-          <h2 class="hero-script">Nuestra Boda</h2>
-          <h1 class="hero-nombres">Diana & Marco</h1>
-          <p class="hero-frase">
-            El mejor viaje de nuestras vidas está a punto de comenzar
-          </p>
-          <div class="hero-scroll">↓</div>
-        </div>
-      </section>
-
-      <section id="countdown" class="hidden">
-        <div class="countdown-texture"></div>
-        <img
-          src="img/rama-izq.png"
-          class="countdown-decoracion countdown-decoracion-izq"
-          alt=""
-        />
-        <img
-          src="img/rama-der.png"
-          class="countdown-decoracion countdown-decoracion-der"
-          alt=""
-        />
-
-        <div class="countdown-inner">
-          <div class="countdown-text">
-            <h2 class="countdown-eyebrow">
-              <span class="eyebrow-rama eyebrow-rama-izq"></span>
-              Acompáñanos en este gran día
-              <span class="eyebrow-rama eyebrow-rama-der"></span>
-            </h2>
-            <div class="countdown-fecha">4 de Diciembre 2026</div>
-            <div class="countdown-timer">
-              <div class="countdown-bloque">
-                <div class="countdown-marco">
-                  <span id="cd-dias">00</span>
-                </div>
-                <label>Días</label>
-              </div>
-              <div class="countdown-separador">:</div>
-              <div class="countdown-bloque">
-                <div class="countdown-marco">
-                  <span id="cd-horas">00</span>
-                </div>
-                <label>Horas</label>
-              </div>
-              <div class="countdown-separador">:</div>
-              <div class="countdown-bloque">
-                <div class="countdown-marco">
-                  <span id="cd-minutos">00</span>
-                </div>
-                <label>Min</label>
-              </div>
-              <div class="countdown-separador">:</div>
-              <div class="countdown-bloque">
-                <div class="countdown-marco">
-                  <span id="cd-segundos">00</span>
-                </div>
-                <label>Seg</label>
-              </div>
-            </div>
-          </div>
-
-          <div class="countdown-conector" id="countdown-conector">
-            <span class="conector-linea"></span>
-            <span class="conector-diamante">◆</span>
-            <span class="conector-linea"></span>
-          </div>
-
-          <div class="countdown-calendario">
-            <span class="calendario-titulo">Reserva la fecha</span>
-            <div class="calendario-header">
-              <span class="calendario-mes">Diciembre</span>
-              <span class="calendario-anio">2026</span>
-            </div>
-            <div class="calendario-dias-semana">
-              <span>D</span><span>L</span><span>M</span><span>M</span
-              ><span>J</span><span>V</span><span>S</span>
-            </div>
-            <div class="calendario-grid" id="calendario-grid"></div>
-          </div>
-        </div>
-      </section>
-
-      <section id="timeline">
-        <div class="timeline-texture"></div>
-        <img
-          src="img/rama-izq.png"
-          class="timeline-decoracion timeline-decoracion-inicio"
-          alt=""
-        />
-
-        <div class="timeline-inner">
-          <h2 class="timeline-eyebrow">
-            <span class="eyebrow-rama eyebrow-rama-izq"></span>
-            Nuestra Historia
-            <span class="eyebrow-rama eyebrow-rama-der"></span>
-          </h2>
-
-          <div class="timeline-linea"></div>
-
-          <div class="timeline-hito" data-hito="1">
-            <div class="timeline-nodo"></div>
-            <div class="timeline-tarjeta">
-              <img
-                src="https://source.unsplash.com/400x500/?couple,vintage"
-                alt=""
-                class="timeline-foto"
-              />
-              <span class="timeline-anio">2018</span>
-              <h3 class="timeline-titulo">Así comenzó todo</h3>
-              <p class="timeline-descripcion">
-                Un encuentro casual que ninguno de los dos vio venir, pero que
-                cambiaría todo lo que vendría después.
-              </p>
-            </div>
-          </div>
-
-          <div class="timeline-hito" data-hito="2">
-            <div class="timeline-nodo"></div>
-            <div class="timeline-tarjeta">
-              <img
-                src="https://source.unsplash.com/400x500/?couple,travel"
-                alt=""
-                class="timeline-foto"
-              />
-              <span class="timeline-anio">2020</span>
-              <h3 class="timeline-titulo">Nuestro primer viaje</h3>
-              <p class="timeline-descripcion">
-                Dejamos la rutina atrás y descubrimos que viajar juntos se
-                sentía como estar en casa.
-              </p>
-            </div>
-          </div>
-
-          <div class="timeline-hito" data-hito="3">
-            <div class="timeline-nodo"></div>
-            <div class="timeline-tarjeta">
-              <img
-                src="https://source.unsplash.com/400x500/?couple,sunset"
-                alt=""
-                class="timeline-foto"
-              />
-              <span class="timeline-anio">2022</span>
-              <h3 class="timeline-titulo">Cuando supe que eras tú</h3>
-              <p class="timeline-descripcion">
-                No hubo un momento exacto, fue la suma de mil pequeños días los
-                que me lo dejaron claro.
-              </p>
-            </div>
-          </div>
-
-          <div class="timeline-hito" data-hito="4">
-            <div class="timeline-nodo"></div>
-            <div class="timeline-tarjeta">
-              <img
-                src="https://source.unsplash.com/400x500/?couple,proposal"
-                alt=""
-                class="timeline-foto"
-              />
-              <span class="timeline-anio">2024</span>
-              <h3 class="timeline-titulo">La pregunta más importante</h3>
-              <p class="timeline-descripcion">
-                Con el corazón latiendo más fuerte que nunca, hice la pregunta
-                que llevaba tiempo guardando.
-              </p>
-            </div>
-          </div>
-
-          <div class="timeline-hito" data-hito="5">
-            <div class="timeline-nodo"></div>
-            <div class="timeline-tarjeta">
-              <img
-                src="https://source.unsplash.com/400x500/?couple,wedding"
-                alt=""
-                class="timeline-foto"
-              />
-              <span class="timeline-anio">2026</span>
-              <h3 class="timeline-titulo">Nuestro sí, para siempre</h3>
-              <p class="timeline-descripcion">
-                El día en que dos historias se convirtieron en una sola, para
-                siempre.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <img
-          src="img/rama-der.png"
-          class="timeline-decoracion timeline-decoracion-fin"
-          alt=""
-        />
-      </section>
-
-      <section id="itinerario">
-        <div class="itinerario-pin-wrapper">
-          <div class="itinerario-texture"></div>
-
-          <h2 class="itinerario-eyebrow">
-            <span class="eyebrow-rama eyebrow-rama-izq"></span>
-            El Gran Día
-            <span class="eyebrow-rama eyebrow-rama-der"></span>
-          </h2>
-
-          <div class="itinerario-track">
-            <div class="itinerario-linea"></div>
-
-            <div class="itinerario-evento" data-evento="1">
-              <div class="itinerario-nodo"></div>
-              <div class="itinerario-tarjeta">
-                <div class="itinerario-icono" data-icono="ceremonia"></div>
-                <span class="itinerario-hora">7:00 PM</span>
-                <h3 class="itinerario-nombre">Ceremonia</h3>
-              </div>
-            </div>
-
-            <div class="itinerario-evento" data-evento="2">
-              <div class="itinerario-nodo"></div>
-              <div class="itinerario-tarjeta">
-                <div class="itinerario-icono" data-icono="coctel"></div>
-                <span class="itinerario-hora">8:00 PM</span>
-                <h3 class="itinerario-nombre">Cóctel de Bienvenida</h3>
-              </div>
-            </div>
-
-            <div class="itinerario-evento" data-evento="3">
-              <div class="itinerario-nodo"></div>
-              <div class="itinerario-tarjeta">
-                <div class="itinerario-icono" data-icono="recepcion"></div>
-                <span class="itinerario-hora">9:00 PM</span>
-                <h3 class="itinerario-nombre">Recepción</h3>
-              </div>
-            </div>
-
-            <div class="itinerario-evento" data-evento="4">
-              <div class="itinerario-nodo"></div>
-              <div class="itinerario-tarjeta">
-                <div class="itinerario-icono" data-icono="baile"></div>
-                <span class="itinerario-hora">10:00 PM</span>
-                <h3 class="itinerario-nombre">Primer Baile</h3>
-              </div>
-            </div>
-
-            <div class="itinerario-evento" data-evento="5">
-              <div class="itinerario-nodo"></div>
-              <div class="itinerario-tarjeta">
-                <div class="itinerario-icono" data-icono="fiesta"></div>
-                <span class="itinerario-hora">10:30 PM</span>
-                <h3 class="itinerario-nombre">Fiesta</h3>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="ubicacion">
-        <div class="ubicacion-marco">
-          <span class="ubicacion-marco-esquina esquina-tl"></span>
-          <span class="ubicacion-marco-esquina esquina-tr"></span>
-          <span class="ubicacion-marco-esquina esquina-bl"></span>
-          <span class="ubicacion-marco-esquina esquina-br"></span>
-
-          <h2 class="ubicacion-eyebrow">
-            <span class="ubicacion-eyebrow-linea"></span>
-            <span class="ubicacion-eyebrow-diamante">◆</span>
-            Ubicaciones
-            <span class="ubicacion-eyebrow-diamante">◆</span>
-            <span class="ubicacion-eyebrow-linea derecha"></span>
-          </h2>
-
-          <div class="ubicacion-lista">
-            <div class="ticket">
-              <div class="ticket-mapa">
-                <img
-                  src="img/Ubicacion_Templo.png"
-                  alt="Mapa Basílica de Zapopan"
-                  class="ticket-mapa-img"
-                />
-                <span class="ticket-numero">01</span>
-              </div>
-              <div class="ticket-muesca ticket-muesca-arriba"></div>
-              <div class="ticket-muesca ticket-muesca-abajo"></div>
-              <div class="ticket-info">
-                <span class="ticket-sello">
-                  <span class="ticket-sello-texto">D&M</span>
-                  <span class="ticket-sello-fecha">04.12.2026</span>
-                </span>
-                <div class="ticket-info-header">
-                  <span class="ticket-tipo">Ceremonia</span>
-                  <span class="ticket-hora">7:00 PM</span>
-                </div>
-                <h3 class="ticket-nombre">Basílica de Zapopan</h3>
-                <p class="ticket-direccion">
-                  Eva Briseño 152, Zapopan Centro, Zapopan, Jalisco
-                </p>
-                <div class="ticket-botones">
-                  <a
-                    href="https://www.google.com/maps/search/?api=1&query=Basilica+de+Zapopan"
-                    target="_blank"
-                    class="ticket-btn"
-                    >Google Maps</a
-                  >
-                  <a
-                    href="https://waze.com/ul?q=Basilica%20de%20Zapopan&navigate=yes"
-                    target="_blank"
-                    class="ticket-btn"
-                    >Waze</a
-                  >
-                </div>
-              </div>
-            </div>
-
-            <div class="ubicacion-conector">
-              <svg viewBox="0 0 200 90" preserveAspectRatio="none">
-                <path
-                  d="M 25 10 C 25 60, 175 20, 175 80"
-                  fill="none"
-                  stroke="#C9A96E"
-                  stroke-width="1.5"
-                  stroke-dasharray="5 6"
-                  opacity="0.7"
-                />
-                <circle cx="25" cy="10" r="4" fill="#B8860B" />
-                <circle cx="175" cy="80" r="4" fill="#B8860B" />
-              </svg>
-            </div>
-
-            <div class="ticket ticket-espejo">
-              <div class="ticket-mapa">
-                <img
-                  src="img/Ubicacion_Salon.png"
-                  alt="Mapa Hacienda La Magdalena"
-                  class="ticket-mapa-img"
-                />
-                <span class="ticket-numero">02</span>
-              </div>
-              <div class="ticket-muesca ticket-muesca-arriba"></div>
-              <div class="ticket-muesca ticket-muesca-abajo"></div>
-              <div class="ticket-info">
-                <span class="ticket-sello">
-                  <span class="ticket-sello-texto">D&M</span>
-                  <span class="ticket-sello-fecha">04.12.2026</span>
-                </span>
-                <div class="ticket-info-header">
-                  <span class="ticket-tipo">Recepción</span>
-                  <span class="ticket-hora">9:00 PM</span>
-                </div>
-                <h3 class="ticket-nombre">Hacienda La Magdalena</h3>
-                <p class="ticket-direccion">
-                  Km 1.7 Carretera Tesistán-Tolotlán, Zapopan, Jalisco
-                </p>
-                <div class="ticket-botones">
-                  <a
-                    href="https://www.google.com/maps/search/?api=1&query=Hacienda+La+Magdalena+Zapopan"
-                    target="_blank"
-                    class="ticket-btn"
-                    >Google Maps</a
-                  >
-                  <a
-                    href="https://waze.com/ul?q=Hacienda%20La%20Magdalena%20Zapopan&navigate=yes"
-                    target="_blank"
-                    class="ticket-btn"
-                    >Waze</a
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="detalles">
-        <h2 class="detalles-eyebrow">
-          <span class="detalles-eyebrow-linea"></span>
-          <span class="detalles-eyebrow-diamante">◆</span>
-          Detalles
-          <span class="detalles-eyebrow-diamante">◆</span>
-          <span class="detalles-eyebrow-linea derecha"></span>
-        </h2>
-
-        <p class="detalles-frase">
-          Los pequeños detalles hacen la gran diferencia
-        </p>
-
-        <div class="detalles-grid">
-          <div class="detalles-columna">
-            <div class="detalle-item">
-              <span class="detalle-numero-fondo">01</span>
-              <button class="detalle-pregunta" data-detalle="1">
-                <svg class="detalle-icono-svg" viewBox="0 0 40 40" fill="none">
-                  <path
-                    d="M20 8 L20 12 M20 12 C14 12 14 18 20 18 C26 18 26 12 20 12 M6 30 L20 18 L34 30 L34 34 L6 34 Z"
-                    stroke="#B8860B"
-                    stroke-width="1.4"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-                <span class="detalle-numero">01</span>
-                <span class="detalle-titulo">Código de vestimenta</span>
-                <span class="detalle-icono">+</span>
-              </button>
-              <div class="detalle-respuesta">
-                <p>
-                  Formal / Etiqueta rigurosa. Ellas vestido largo, ellos traje
-                  oscuro. Pedimos evitar el blanco y tonos tierra para no
-                  coincidir con la decoración.
-                </p>
-              </div>
-            </div>
-
-            <div class="detalle-item">
-              <span class="detalle-numero-fondo">03</span>
-              <button class="detalle-pregunta" data-detalle="3">
-                <svg class="detalle-icono-svg" viewBox="0 0 40 40" fill="none">
-                  <circle
-                    cx="20"
-                    cy="20"
-                    r="13"
-                    stroke="#B8860B"
-                    stroke-width="1.4"
-                  />
-                  <path
-                    d="M11 29 L29 11"
-                    stroke="#B8860B"
-                    stroke-width="1.4"
-                    stroke-linecap="round"
-                  />
-                </svg>
-                <span class="detalle-numero">03</span>
-                <span class="detalle-titulo">¿Los niños están invitados?</span>
-                <span class="detalle-icono">+</span>
-              </button>
-              <div class="detalle-respuesta">
-                <p>
-                  Con mucho cariño, hemos decidido que nuestra celebración sea
-                  solo para adultos. Agradecemos su comprensión y esperamos que
-                  puedan disfrutar la noche con nosotros.
-                </p>
-              </div>
-            </div>
-
-            <div class="detalle-item">
-              <span class="detalle-numero-fondo">05</span>
-              <button class="detalle-pregunta" data-detalle="5">
-                <svg class="detalle-icono-svg" viewBox="0 0 40 40" fill="none">
-                  <rect
-                    x="8"
-                    y="16"
-                    width="24"
-                    height="18"
-                    stroke="#B8860B"
-                    stroke-width="1.4"
-                  />
-                  <path
-                    d="M8 22 L32 22 M20 16 L20 34"
-                    stroke="#B8860B"
-                    stroke-width="1.4"
-                  />
-                  <path
-                    d="M20 16 C14 16 13 10 17 9 C20 8 20 13 20 16 C20 13 20 8 23 9 C27 10 26 16 20 16 Z"
-                    stroke="#B8860B"
-                    stroke-width="1.4"
-                  />
-                </svg>
-                <span class="detalle-numero">05</span>
-                <span class="detalle-titulo">Mesa de regalos</span>
-                <span class="detalle-icono">+</span>
-              </button>
-              <div class="detalle-respuesta">
-                <p>
-                  Tu presencia es el mejor regalo que podemos recibir. Si deseas
-                  obsequiarnos algo, hemos preparado una mesa de regalos que
-                  podrás consultar más abajo en esta invitación.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="detalles-divisor"></div>
-
-          <div class="detalles-columna">
-            <div class="detalle-item">
-              <span class="detalle-numero-fondo">02</span>
-              <button class="detalle-pregunta" data-detalle="2">
-                <svg class="detalle-icono-svg" viewBox="0 0 40 40" fill="none">
-                  <circle
-                    cx="20"
-                    cy="18"
-                    r="8"
-                    stroke="#B8860B"
-                    stroke-width="1.4"
-                  />
-                  <path
-                    d="M20 4 L20 7 M20 29 L20 32 M6 18 L9 18 M31 18 L34 18 M10 8 L12 10 M28 26 L30 28 M10 28 L12 26 M28 10 L30 8"
-                    stroke="#B8860B"
-                    stroke-width="1.4"
-                    stroke-linecap="round"
-                  />
-                </svg>
-                <span class="detalle-numero">02</span>
-                <span class="detalle-titulo">Clima y temporada</span>
-                <span class="detalle-icono">+</span>
-              </button>
-              <div class="detalle-respuesta">
-                <p>
-                  Diciembre en Zapopan es templado durante el día y fresco por
-                  la noche. Recomendamos llevar un abrigo ligero para después de
-                  las 9:00 PM.
-                </p>
-              </div>
-            </div>
-
-            <div class="detalle-item">
-              <span class="detalle-numero-fondo">04</span>
-              <button class="detalle-pregunta" data-detalle="4">
-                <svg class="detalle-icono-svg" viewBox="0 0 40 40" fill="none">
-                  <path
-                    d="M8 24 L10 15 C11 13 12 12 15 12 L25 12 C28 12 29 13 30 15 L32 24"
-                    stroke="#B8860B"
-                    stroke-width="1.4"
-                    stroke-linejoin="round"
-                  />
-                  <rect
-                    x="6"
-                    y="24"
-                    width="28"
-                    height="7"
-                    rx="1"
-                    stroke="#B8860B"
-                    stroke-width="1.4"
-                  />
-                  <circle
-                    cx="12"
-                    cy="31"
-                    r="2"
-                    stroke="#B8860B"
-                    stroke-width="1.4"
-                  />
-                  <circle
-                    cx="28"
-                    cy="31"
-                    r="2"
-                    stroke="#B8860B"
-                    stroke-width="1.4"
-                  />
-                </svg>
-                <span class="detalle-numero">04</span>
-                <span class="detalle-titulo">Estacionamiento y transporte</span>
-                <span class="detalle-icono">+</span>
-              </button>
-              <div class="detalle-respuesta">
-                <p>
-                  Ambas sedes cuentan con estacionamiento propio y servicio de
-                  valet parking sin costo. Si prefieres no manejar, contaremos
-                  con transporte disponible entre la ceremonia y la recepción.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="galeria">
-        <h2 class="galeria-eyebrow">
-          <span class="galeria-eyebrow-linea"></span>
-          <span class="galeria-eyebrow-diamante">◆</span>
-          Galería
-          <span class="galeria-eyebrow-diamante">◆</span>
-          <span class="galeria-eyebrow-linea derecha"></span>
-        </h2>
-
-        <div class="galeria-grid">
-          <div class="galeria-item" data-index="0">
-            <img
-              src="img/galeria-01.jpg"
-              alt="Diana y Marco"
-              class="galeria-img"
-            />
-          </div>
-          <div class="galeria-item" data-index="1">
-            <img
-              src="img/galeria-02.jpg"
-              alt="Diana y Marco"
-              class="galeria-img"
-            />
-          </div>
-          <div class="galeria-item" data-index="2">
-            <img
-              src="img/galeria-03.jpg"
-              alt="Diana y Marco"
-              class="galeria-img"
-            />
-          </div>
-          <div class="galeria-item" data-index="3">
-            <img
-              src="img/galeria-04.jpg"
-              alt="Diana y Marco"
-              class="galeria-img"
-            />
-          </div>
-          <div class="galeria-item" data-index="4">
-            <img
-              src="img/galeria-05.jpg"
-              alt="Diana y Marco"
-              class="galeria-img"
-            />
-          </div>
-          <div class="galeria-item" data-index="5">
-            <img
-              src="img/galeria-06.jpg"
-              alt="Diana y Marco"
-              class="galeria-img"
-            />
-          </div>
-          <div class="galeria-item" data-index="6">
-            <img
-              src="img/galeria-07.jpg"
-              alt="Diana y Marco"
-              class="galeria-img"
-            />
-          </div>
-          <div class="galeria-item" data-index="7">
-            <img
-              src="img/galeria-08.jpg"
-              alt="Diana y Marco"
-              class="galeria-img"
-            />
-          </div>
-        </div>
-      </section>
-
-      <div class="lightbox" id="lightbox">
-        <button class="lightbox-cerrar" id="lightbox-cerrar">✕</button>
-        <button class="lightbox-nav lightbox-prev" id="lightbox-prev">‹</button>
-        <img src="" alt="" class="lightbox-img" id="lightbox-img" />
-        <button class="lightbox-nav lightbox-next" id="lightbox-next">›</button>
+      <div class="rsvp-dots" id="rsvp-dots">
+        <span class="rsvp-dot activo" data-paso="1"></span>
+        <span class="rsvp-dot" data-paso="2"></span>
+        <span class="rsvp-dot" data-paso="3"></span>
+        <span class="rsvp-dot" data-paso="4"></span>
       </div>
-    </div>
 
-    <section id="regalos">
-      <div class="regalos-marco">
-        <span class="regalos-marco-esquina esquina-tl"></span>
-        <span class="regalos-marco-esquina esquina-tr"></span>
-        <span class="regalos-marco-esquina esquina-bl"></span>
-        <span class="regalos-marco-esquina esquina-br"></span>
-
-        <h2 class="regalos-eyebrow">
-          <span class="regalos-eyebrow-linea"></span>
-          <span class="regalos-eyebrow-diamante">◆</span>
-          Mesa de Regalos
-          <span class="regalos-eyebrow-diamante">◆</span>
-          <span class="regalos-eyebrow-linea derecha"></span>
-        </h2>
-
-        <p class="regalos-frase">
-          Tu presencia es nuestro mejor regalo, pero si deseas obsequiarnos algo
-          más, aquí tienes algunas opciones
-        </p>
-
-        <div class="regalos-grid">
-          <a href="#" target="_blank" class="regalo-card">
-            <span class="regalo-numero-fondo">01</span>
-            <svg class="regalo-icono" viewBox="0 0 40 40" fill="none">
-              <rect
-                x="8"
-                y="16"
-                width="24"
-                height="18"
-                stroke="#B8860B"
-                stroke-width="1.4"
-              />
-              <path
-                d="M8 22 L32 22 M20 16 L20 34"
-                stroke="#B8860B"
-                stroke-width="1.4"
-              />
-              <path
-                d="M20 16 C14 16 13 10 17 9 C20 8 20 13 20 16 C20 13 20 8 23 9 C27 10 26 16 20 16 Z"
-                stroke="#B8860B"
-                stroke-width="1.4"
-              />
-            </svg>
-            <span class="regalo-tienda">Liverpool</span>
-            <span class="regalo-desc">Mesa de regalos física y en línea</span>
-            <span class="regalo-btn">Ver mesa</span>
-          </a>
-
-          <a href="#" target="_blank" class="regalo-card">
-            <span class="regalo-numero-fondo">02</span>
-            <svg class="regalo-icono" viewBox="0 0 40 40" fill="none">
-              <rect
-                x="8"
-                y="16"
-                width="24"
-                height="18"
-                stroke="#B8860B"
-                stroke-width="1.4"
-              />
-              <path
-                d="M8 22 L32 22 M20 16 L20 34"
-                stroke="#B8860B"
-                stroke-width="1.4"
-              />
-              <path
-                d="M20 16 C14 16 13 10 17 9 C20 8 20 13 20 16 C20 13 20 8 23 9 C27 10 26 16 20 16 Z"
-                stroke="#B8860B"
-                stroke-width="1.4"
-              />
-            </svg>
-            <span class="regalo-tienda">Amazon</span>
-            <span class="regalo-desc">Lista de regalos en línea</span>
-            <span class="regalo-btn">Ver mesa</span>
-          </a>
-
-          <a href="#" target="_blank" class="regalo-card">
-            <span class="regalo-numero-fondo">03</span>
-            <svg class="regalo-icono" viewBox="0 0 40 40" fill="none">
-              <rect
-                x="8"
-                y="16"
-                width="24"
-                height="18"
-                stroke="#B8860B"
-                stroke-width="1.4"
-              />
-              <path
-                d="M8 22 L32 22 M20 16 L20 34"
-                stroke="#B8860B"
-                stroke-width="1.4"
-              />
-              <path
-                d="M20 16 C14 16 13 10 17 9 C20 8 20 13 20 16 C20 13 20 8 23 9 C27 10 26 16 20 16 Z"
-                stroke="#B8860B"
-                stroke-width="1.4"
-              />
-            </svg>
-            <span class="regalo-tienda">Sears</span>
-            <span class="regalo-desc">Mesa de regalos física y en línea</span>
-            <span class="regalo-btn">Ver mesa</span>
-          </a>
-        </div>
-
-        <div class="regalo-sobre-panel" id="sobre-toggle">
-          <div class="regalo-sobre-info">
-            <svg class="regalo-sobre-icono" viewBox="0 0 40 40" fill="none">
-              <rect
-                x="6"
-                y="12"
-                width="28"
-                height="20"
-                stroke="#B8860B"
-                stroke-width="1.4"
-              />
-              <path
-                d="M6 12 L20 24 L34 12"
-                stroke="#B8860B"
-                stroke-width="1.4"
-                stroke-linejoin="round"
-              />
-              <circle cx="20" cy="22" r="3" fill="#B8860B" opacity="0.85" />
-            </svg>
-            <div class="regalo-sobre-texto">
-              <span class="regalo-sobre-titulo"
-                >¿Prefieres un regalo en efectivo?</span
-              >
-              <span class="regalo-sobre-sub"
-                >Puedes hacerlo a través de transferencia bancaria</span
-              >
-            </div>
-          </div>
-          <span class="regalo-sobre-btn"
-            >Ver datos <span class="regalo-sobre-flecha">→</span></span
-          >
-        </div>
-
-        <div class="sobre-datos" id="sobre-datos">
-          <div class="sobre-datos-info">
-            <div class="sobre-dato">
-              <span class="sobre-dato-label">Banco</span>
-              <span class="sobre-dato-valor">BBVA</span>
-            </div>
-            <div class="sobre-dato">
-              <span class="sobre-dato-label">Titular</span>
-              <span class="sobre-dato-valor">Diana [Apellido]</span>
-            </div>
-            <div class="sobre-dato">
-              <span class="sobre-dato-label">CLABE</span>
-              <span class="sobre-dato-valor">0000 0000 0000 0000</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="rsvp">
-      <div class="rsvp-marco">
-        <span class="rsvp-marco-esquina esquina-tl"></span>
-        <span class="rsvp-marco-esquina esquina-tr"></span>
-        <span class="rsvp-marco-esquina esquina-bl"></span>
-        <span class="rsvp-marco-esquina esquina-br"></span>
-
-        <p class="rsvp-script">Nos encantaría contar contigo</p>
-        <h2 class="rsvp-titulo">Confirma tu asistencia</h2>
-        <p class="rsvp-fecha-limite">Antes del 15 de noviembre de 2026</p>
-        <button class="rsvp-btn-abrir" id="rsvp-abrir">Confirmar ahora</button>
-      </div>
-    </section>
-
-    <section id="footer">
-      <div class="footer-inner">
-        <div class="footer-monograma">D & M</div>
-        <p class="footer-fecha">4 de Diciembre 2026</p>
-        <p class="footer-mensaje">
-          Gracias por ser parte de nuestra historia.<br />Los esperamos con todo
-          el amor del mundo en este día tan especial.
-        </p>
-        <div class="footer-linea"></div>
-        <p class="footer-contacto">
-          ¿Alguna duda? Escríbenos: <a href="tel:+523312345678">33 1234 5678</a>
-        </p>
-      </div>
-    </section>
-
-    <div class="rsvp-modal" id="rsvp-modal">
-      <div class="rsvp-modal-contenido">
-        <button class="rsvp-cerrar" id="rsvp-cerrar">✕</button>
-
-        <div class="rsvp-dots" id="rsvp-dots">
-          <span class="rsvp-dot activo" data-paso="1"></span>
-          <span class="rsvp-dot" data-paso="2"></span>
-          <span class="rsvp-dot" data-paso="3"></span>
-          <span class="rsvp-dot" data-paso="4"></span>
-        </div>
-
-        <div class="rsvp-paso rsvp-paso-activo" data-paso="1">
-          <h3 class="rsvp-paso-titulo">¿Podrás acompañarnos?</h3>
-          <p class="rsvp-paso-nombre" id="rsvp-nombre-invitado"></p>
-          <div class="rsvp-opciones">
-            <button class="rsvp-opcion" data-asistencia="Sí">
-              <span class="rsvp-opcion-icono">✓</span>
-              Sí, ahí estaré
-            </button>
-            <button class="rsvp-opcion" data-asistencia="No">
-              <span class="rsvp-opcion-icono">✕</span>
-              No podré asistir
-            </button>
-          </div>
-        </div>
-
-        <div class="rsvp-paso" data-paso="2">
-          <h3 class="rsvp-paso-titulo">Detalles de tu asistencia</h3>
-          <div class="rsvp-campo">
-            <label class="rsvp-label">¿Cuántos boletos usarás?</label>
-            <select class="rsvp-select" id="rsvp-boletos"></select>
-          </div>
-          <div class="rsvp-campo">
-            <label class="rsvp-label">Teléfono de contacto</label>
-            <input
-              type="tel"
-              class="rsvp-input"
-              id="rsvp-telefono"
-              placeholder="33 1234 5678"
-            />
-          </div>
-          <div class="rsvp-acompanantes" id="rsvp-acompanantes"></div>
-        </div>
-
-        <div class="rsvp-paso" data-paso="3">
-          <h3 class="rsvp-paso-titulo">Un mensaje para nosotros</h3>
-          <div class="rsvp-campo">
-            <label class="rsvp-label">Dedicatoria (opcional)</label>
-            <textarea
-              class="rsvp-textarea"
-              id="rsvp-dedicatoria"
-              rows="4"
-              placeholder="Escríbenos unas palabras..."
-            ></textarea>
-          </div>
-          <div class="rsvp-campo">
-            <label class="rsvp-label"
-              >¿Qué canción no puede faltar? (opcional)</label
-            >
-            <input
-              type="text"
-              class="rsvp-input"
-              id="rsvp-cancion"
-              placeholder="Nombre de la canción y artista"
-            />
-          </div>
-          <div class="rsvp-campo">
-            <label class="rsvp-label">Comparte una foto (opcional)</label>
-            <input
-              type="file"
-              accept="image/*"
-              class="rsvp-file-input"
-              id="rsvp-foto"
-              hidden
-            />
-            <label for="rsvp-foto" class="rsvp-file-boton" id="rsvp-file-label"
-              >Elegir foto</label
-            >
-            <img class="rsvp-file-preview" id="rsvp-file-preview" hidden />
-          </div>
-        </div>
-
-        <div class="rsvp-paso" data-paso="4">
-          <div class="rsvp-resumen" id="rsvp-resumen"></div>
-          <button class="rsvp-btn-enviar" id="rsvp-enviar">Confirmar</button>
-        </div>
-
-        <div class="rsvp-paso" data-paso="exito">
-          <div class="rsvp-exito">
-            <span class="rsvp-exito-icono">✓</span>
-            <h3 class="rsvp-exito-titulo">¡Gracias!</h3>
-            <p class="rsvp-exito-texto" id="rsvp-exito-texto"></p>
-          </div>
-        </div>
-
-        <div class="rsvp-nav" id="rsvp-nav">
-          <button class="rsvp-nav-btn rsvp-nav-atras" id="rsvp-atras">
-            Atrás
+      <div class="rsvp-paso rsvp-paso-activo" data-paso="1">
+        <h3 class="rsvp-paso-titulo">¿Podrás acompañarnos?</h3>
+        <p class="rsvp-paso-nombre" id="rsvp-nombre-invitado"></p>
+        <div class="rsvp-opciones">
+          <button class="rsvp-opcion" data-asistencia="Sí">
+            <span class="rsvp-opcion-icono">✓</span>
+            Sí, ahí estaré
           </button>
-          <button class="rsvp-nav-btn rsvp-nav-siguiente" id="rsvp-siguiente">
-            Siguiente
+          <button class="rsvp-opcion" data-asistencia="No">
+            <span class="rsvp-opcion-icono">✕</span>
+            No podré asistir
           </button>
         </div>
       </div>
-    </div>
 
-    <div class="musica-flotante" id="musica-flotante">
+      <div class="rsvp-paso" data-paso="2">
+        <h3 class="rsvp-paso-titulo">Detalles de tu asistencia</h3>
+        <div class="rsvp-campo">
+          <label class="rsvp-label">¿Cuántos boletos usarás?</label>
+          <select class="rsvp-select" id="rsvp-boletos"></select>
+        </div>
+        <div class="rsvp-campo">
+          <label class="rsvp-label">Teléfono de contacto</label>
+          <input type="tel" class="rsvp-input" id="rsvp-telefono" placeholder="33 1234 5678" />
+        </div>
+        <div class="rsvp-acompanantes" id="rsvp-acompanantes"></div>
+      </div>
+
+      <div class="rsvp-paso" data-paso="3">
+        <h3 class="rsvp-paso-titulo">Un mensaje para nosotros</h3>
+        <div class="rsvp-campo">
+          <label class="rsvp-label">Dedicatoria (opcional)</label>
+          <textarea class="rsvp-textarea" id="rsvp-dedicatoria" rows="4"
+            placeholder="Escríbenos unas palabras..."></textarea>
+        </div>
+        <div class="rsvp-campo">
+          <label class="rsvp-label">¿Qué canción no puede faltar? (opcional)</label>
+          <input type="text" class="rsvp-input" id="rsvp-cancion" placeholder="Nombre de la canción y artista" />
+        </div>
+        <div class="rsvp-campo">
+          <label class="rsvp-label">Comparte una foto (opcional)</label>
+          <input type="file" accept="image/*" class="rsvp-file-input" id="rsvp-foto" hidden />
+          <label for="rsvp-foto" class="rsvp-file-boton" id="rsvp-file-label">Elegir foto</label>
+          <img class="rsvp-file-preview" id="rsvp-file-preview" hidden />
+        </div>
+      </div>
+
+      <div class="rsvp-paso" data-paso="4">
+        <div class="rsvp-resumen" id="rsvp-resumen"></div>
+        <button class="rsvp-btn-enviar" id="rsvp-enviar">Confirmar</button>
+      </div>
+
+      <div class="rsvp-paso" data-paso="exito">
+        <div class="rsvp-exito">
+          <span class="rsvp-exito-icono">✓</span>
+          <h3 class="rsvp-exito-titulo">¡Gracias!</h3>
+          <p class="rsvp-exito-texto" id="rsvp-exito-texto"></p>
+        </div>
+      </div>
+
+      <div class="rsvp-nav" id="rsvp-nav">
+        <button class="rsvp-nav-btn rsvp-nav-atras" id="rsvp-atras">
+          Atrás
+        </button>
+        <button class="rsvp-nav-btn rsvp-nav-siguiente" id="rsvp-siguiente">
+          Siguiente
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="musica-flotante" id="musica-flotante">
     <span class="musica-hint" id="musica-hint">Escúchame</span>
     <button class="musica-btn" id="musica-btn" aria-label="Reproducir música">
-        <svg class="musica-nota" viewBox="0 0 24 24" fill="none">
-            <path d="M9 18V5l12-2v13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <circle cx="6" cy="18" r="3" stroke="currentColor" stroke-width="1.5"/>
-            <circle cx="18" cy="16" r="3" stroke="currentColor" stroke-width="1.5"/>
-        </svg>
+      <svg class="musica-nota" viewBox="0 0 24 24" fill="none">
+        <path d="M9 18V5l12-2v13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+          stroke-linejoin="round" />
+        <circle cx="6" cy="18" r="3" stroke="currentColor" stroke-width="1.5" />
+        <circle cx="18" cy="16" r="3" stroke="currentColor" stroke-width="1.5" />
+      </svg>
     </button>
     <audio id="musica-audio" loop preload="none">
-        <source src="audio/cancion.mp3" type="audio/mpeg">
+      <source src="audio/cancion.mp3" type="audio/mpeg">
     </audio>
-</div>
-  </body>
+  </div>
+</body>
+
 </html>

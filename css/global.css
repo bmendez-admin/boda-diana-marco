@@ -77,3 +77,65 @@ body {
 #invitacion {
   opacity: 0;
 }
+
+#pantalla-ya-confirmo {
+    position: relative;
+}
+
+.ya-confirmo-decoracion {
+    position: absolute;
+    width: 140px;
+    opacity: 0.9;
+}
+
+.ya-confirmo-decoracion-izq {
+    top: 0;
+    left: 0;
+}
+
+.ya-confirmo-decoracion-der {
+    bottom: 0;
+    right: 0;
+    transform: rotate(180deg);
+}
+
+.ya-confirmo-sello {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 1.5px solid var(--color-taupe);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 20px;
+    letter-spacing: 1px;
+    color: var(--color-carbon);
+    margin-bottom: 20px;
+}
+
+.ya-confirmo-script {
+    font-family: var(--font-script);
+    font-size: 28px;
+    color: var(--color-tierra);
+    margin-bottom: 8px;
+}
+
+.ya-confirmo-btn {
+    margin-top: 28px;
+    padding: 14px 36px;
+    background: none;
+    border: 1px solid var(--color-carbon);
+    color: var(--color-carbon);
+    font-family: var(--font-body);
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.25s ease, color 0.25s ease;
+}
+
+.ya-confirmo-btn:hover {
+    background: var(--color-carbon);
+    color: var(--color-crema);
+}
