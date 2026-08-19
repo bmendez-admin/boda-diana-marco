@@ -78,10 +78,6 @@ body {
   opacity: 0;
 }
 
-#pantalla-ya-confirmo {
-    position: relative;
-}
-
 .ya-confirmo-decoracion {
     position: absolute;
     width: 140px;
