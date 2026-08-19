@@ -22,10 +22,32 @@ function initGaleria() {
         }
     });
 
-    function abrirLightbox(lista, index) {
-        listaActual = lista;
-        indiceActual = index;
+    async function construirListaCompleta() {
+        const locales = Array.from(items).map((i) => i.dataset.src);
+        locales.push('img/galeria-08.jpg');
+
+        try {
+            const res = await fetch(`${API_URL}?action=getGaleriaPublica&key=${API_KEY_PUBLIC}&_=${Date.now()}`, {
+                cache: 'no-store',
+            });
+            const resultado = await res.json();
+            if (resultado.ok && resultado.data.length > 0) {
+                const invitados = resultado.data.map((item) => item.foto);
+                return locales.concat(invitados);
+            }
+        } catch (e) {
+            console.warn('No se pudo cargar la galería de invitados.');
+        }
+        return locales;
+    }
+
+    function mostrarActual() {
         lightboxImg.src = listaActual[indiceActual];
+    }
+
+    function abrirLightbox(index) {
+        indiceActual = index;
+        mostrarActual();
         lightbox.classList.add('lightbox-activo');
     }
 
@@ -35,33 +57,25 @@ function initGaleria() {
 
     function siguiente() {
         indiceActual = (indiceActual + 1) % listaActual.length;
-        lightboxImg.src = listaActual[indiceActual];
+        mostrarActual();
     }
 
     function anterior() {
         indiceActual = (indiceActual - 1 + listaActual.length) % listaActual.length;
-        lightboxImg.src = listaActual[indiceActual];
+        mostrarActual();
     }
 
     items.forEach((item, index) => {
-        item.addEventListener('click', () => {
-            const lista = Array.from(items).map((i) => i.dataset.src);
-            abrirLightbox(lista, index);
+        item.addEventListener('click', async () => {
+            listaActual = await construirListaCompleta();
+            abrirLightbox(index);
         });
     });
 
     btnVerMas.addEventListener('click', async () => {
-        try {
-            const res = await fetch(`${API_URL}?action=getGaleriaPublica&key=${API_KEY_PUBLIC}&_=${Date.now()}`, {
-                cache: 'no-store',
-            });
-            const resultado = await res.json();
-            if (!resultado.ok || resultado.data.length === 0) return;
-            const lista = resultado.data.map((item) => item.foto);
-            abrirLightbox(lista, 0);
-        } catch (e) {
-            console.warn('No se pudo cargar la galería completa.');
-        }
+        listaActual = await construirListaCompleta();
+        if (listaActual.length === 0) return;
+        abrirLightbox(items.length);
     });
 
     btnCerrar.addEventListener('click', cerrarLightbox);
