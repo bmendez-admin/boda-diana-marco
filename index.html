@@ -40,6 +40,7 @@
   <script src="js/rsvp.js" defer></script>
   <script src="js/footer.js" defer></script>
   <script src="js/musica.js" defer></script>
+  <script src="js/confirmacion.js" defer></script>
 </head>
 
 <body>
@@ -60,6 +61,55 @@
     <h1>¡Ya tienes tu lugar!</h1>
     <p>Ya confirmaste tu asistencia anteriormente. ¡Nos vemos el gran día!</p>
     <button class="ya-confirmo-btn" id="ver-confirmacion-btn">Ver mi confirmación</button>
+  </div>
+
+  <div class="confirmacion-modal" id="confirmacion-modal">
+    <div class="confirmacion-modal-contenido">
+      <button class="confirmacion-cerrar" id="confirmacion-cerrar">✕</button>
+
+      <div class="confirmacion-tabs">
+        <button class="confirmacion-tab activo" data-tab="mi-confirmacion">Mi confirmación</button>
+        <button class="confirmacion-tab" data-tab="detalles-evento">Detalles del evento</button>
+      </div>
+
+      <div class="confirmacion-panel confirmacion-panel-activo" data-panel="mi-confirmacion">
+        <div class="confirmacion-foto-wrapper" id="confirmacion-foto-wrapper">
+          <img src="" alt="" id="confirmacion-foto" class="confirmacion-foto" hidden>
+        </div>
+        <h3 class="confirmacion-nombre" id="confirmacion-nombre"></h3>
+        <div class="confirmacion-linea"><span>Asistencia</span><span id="confirmacion-asistencia"></span></div>
+        <div class="confirmacion-linea"><span>Boletos</span><span id="confirmacion-boletos"></span></div>
+        <div class="confirmacion-linea"><span>Teléfono</span><span id="confirmacion-telefono"></span></div>
+        <div class="confirmacion-linea" id="confirmacion-acompanantes-linea">
+          <span>Acompañantes</span><span id="confirmacion-acompanantes"></span>
+        </div>
+        <div class="confirmacion-bloque" id="confirmacion-dedicatoria-bloque">
+          <span class="confirmacion-bloque-label">Tu dedicatoria</span>
+          <p id="confirmacion-dedicatoria"></p>
+        </div>
+        <div class="confirmacion-bloque" id="confirmacion-cancion-bloque">
+          <span class="confirmacion-bloque-label">Tu canción sugerida</span>
+          <p id="confirmacion-cancion"></p>
+        </div>
+      </div>
+
+      <div class="confirmacion-panel" data-panel="detalles-evento">
+        <div class="confirmacion-evento-item">
+          <span class="confirmacion-evento-tipo">Ceremonia · 7:00 PM</span>
+          <h4>Basílica de Zapopan</h4>
+          <p>Eva Briseño 152, Zapopan Centro, Zapopan, Jalisco</p>
+        </div>
+        <div class="confirmacion-evento-item">
+          <span class="confirmacion-evento-tipo">Recepción · 9:00 PM</span>
+          <h4>Hacienda La Magdalena</h4>
+          <p>Km 1.7 Carretera Tesistán-Tolotlán, Zapopan, Jalisco</p>
+        </div>
+        <div class="confirmacion-evento-item">
+          <span class="confirmacion-evento-tipo">Fecha</span>
+          <h4>4 de Diciembre 2026</h4>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div id="invitacion">

@@ -14,7 +14,7 @@ async function validarInvitado(token) {
         return MOCK_INVITADO;
     }
     const res = await fetch(`${API_URL}?action=getInvitado&token=${token}&key=${API_KEY_PUBLIC}&_=${Date.now()}`, {
-    cache: 'no-store'
+        cache: 'no-store'
     });
     const json = await res.json();
     return json;
@@ -32,6 +32,7 @@ async function init() {
         return;
     }
     if (resultado.data.estado === 'Confirmado' || resultado.data.estado === 'Declinó') {
+        invitadoData = resultado.data;
         mostrarYaConfirmo();
         return;
     }
