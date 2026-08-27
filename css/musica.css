@@ -11,19 +11,25 @@
     width: 56px;
     height: 56px;
     border-radius: 50%;
-    background-color: var(--color-crema);
-    border: 1px solid var(--color-taupe);
-    box-shadow: 0 4px 16px rgba(44, 44, 44, 0.18);
+    background-color: var(--color-superficie);
+    border: 1px solid var(--color-acento);
+    box-shadow: 0 4px 16px rgba(112, 68, 21, 0.18);
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: transform 0.2s ease;
-    color: var(--color-carbon);
+    transition: transform 0.2s ease, opacity 0.3s ease;
+    color: var(--color-texto-oscuro);
 }
 
 .musica-btn:hover {
     transform: scale(1.06);
+}
+
+.musica-cargando .musica-btn {
+    opacity: 0.55;
+    cursor: wait;
+    pointer-events: none;
 }
 
 .musica-nota {
@@ -44,15 +50,15 @@
     position: absolute;
     bottom: 68px;
     right: 0;
-    background-color: var(--color-crema);
-    border: 1px solid var(--color-taupe);
+    background-color: var(--color-superficie);
+    border: 1px solid var(--color-acento);
     padding: 6px 14px;
     border-radius: 20px;
     font-family: var(--font-body);
     font-size: 13px;
-    color: var(--color-carbon);
+    color: var(--color-texto-oscuro);
     white-space: nowrap;
-    box-shadow: 0 2px 8px rgba(44, 44, 44, 0.12);
+    box-shadow: 0 2px 8px rgba(112, 68, 21, 0.12);
 }
 
 .musica-activa .musica-hint {

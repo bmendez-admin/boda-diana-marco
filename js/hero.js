@@ -1,6 +1,5 @@
 function initHero() {
     const wrapper = document.getElementById('hero-imagen-wrapper');
-    const img = document.getElementById('hero-img');
 
     const tl = gsap.timeline();
 
@@ -16,7 +15,7 @@ function initHero() {
 
     gsap.to('.hero-scroll', { y: 8, repeat: -1, yoyo: true, duration: 0.9, ease: 'power1.inOut', delay: 2 });
 
-    gsap.to(img, {
+    gsap.to(wrapper, {
         scale: 1.08,
         duration: 22,
         ease: 'none'

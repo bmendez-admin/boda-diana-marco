@@ -4,6 +4,7 @@ function initTimeline() {
 
     gsap.set(hitos, { opacity: 0 });
     gsap.set('.timeline-nodo', { scale: 0 });
+    gsap.set('.timeline-foto', { scale: 1.08 });
 
     hitos.forEach((hito, index) => {
         const desdeIzquierda = index % 2 === 0;
@@ -28,7 +29,22 @@ function initTimeline() {
             scrollTrigger: {
                 trigger: hito,
                 start: 'top 80%',
-                toggleActions: 'play none none reverse'
+                toggleActions: 'play none none reverse',
+                toggleClass: {
+                    targets: hito.querySelector('.timeline-nodo'),
+                    className: 'timeline-nodo-activo'
+                }
+            }
+        });
+
+        gsap.to(hito.querySelector('.timeline-foto'), {
+            scale: 1,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: hito,
+                start: 'top 90%',
+                end: 'top 35%',
+                scrub: 1
             }
         });
     });

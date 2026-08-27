@@ -24,7 +24,7 @@ function initGaleria() {
 
     async function construirListaCompleta() {
         const locales = Array.from(items).map((i) => i.dataset.src);
-        locales.push('img/galeria-08.jpg');
+        locales.push('img/galeria-08.jpeg');
 
         try {
             const res = await fetch(`${API_URL}?action=getGaleriaPublica&key=${API_KEY_PUBLIC}&_=${Date.now()}`, {

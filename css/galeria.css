@@ -1,8 +1,8 @@
 #galeria {
     position: relative;
-    background-color: var(--color-crema);
     padding: 130px 24px;
     opacity: 0;
+    background-color: var(--color-fondo);
 }
 
 #galeria.galeria-visible {
@@ -15,35 +15,34 @@
     align-items: center;
     justify-content: center;
     gap: 18px;
-    font-family: var(--font-display);
-    font-style: italic;
-    font-size: 1.4rem;
-    color: #A8825A;
-    letter-spacing: 0.04em;
+    font-family: var(--font-script);
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    color: var(--color-acento);
+    letter-spacing: 0.02em;
     margin-bottom: 70px;
 }
 
 .galeria-eyebrow-linea {
     width: 60px;
     height: 1px;
-    background: linear-gradient(90deg, transparent, #C9A96E);
+    background: linear-gradient(90deg, transparent, var(--color-acento));
 }
 
 .galeria-eyebrow-linea.derecha {
-    background: linear-gradient(90deg, #C9A96E, transparent);
+    background: linear-gradient(90deg, var(--color-acento), transparent);
 }
 
 .galeria-eyebrow-diamante {
-    color: #C9A96E;
+    color: var(--color-acento);
     font-size: 0.8rem;
 }
 
 .galeria-grid {
-    max-width: 1600px;
+    max-width: 1400px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: 260px;
+    grid-auto-rows: 200px;
     gap: 18px;
 }
 
@@ -91,7 +90,7 @@
     position: relative;
     background: var(--color-blanco);
     padding: 8px;
-    border: 1px solid #C9A96E;
+    border: 1px solid var(--color-acento);
     cursor: pointer;
     opacity: 0;
     transform: scale(0.92);
@@ -99,8 +98,8 @@
 }
 
 .galeria-item:hover {
-    border-color: #B8860B;
-    box-shadow: -6px 12px 30px rgba(44, 44, 44, 0.18);
+    border-color: var(--color-acento);
+    box-shadow: -6px 12px 30px rgba(112, 68, 21, 0.18);
     z-index: 2;
 }
 
@@ -108,7 +107,7 @@
     content: '';
     position: absolute;
     inset: 4px;
-    border: 1px solid rgba(201, 169, 110, 0.4);
+    border: 1px solid rgba(180, 111, 31, 0.4);
     pointer-events: none;
     z-index: 1;
 }
@@ -163,7 +162,7 @@
     right: 40px;
     background: none;
     border: none;
-    color: var(--color-crema);
+    color: var(--color-superficie);
     font-size: 1.8rem;
     cursor: pointer;
     font-family: var(--font-body);
@@ -176,7 +175,7 @@
     transform: translateY(-50%);
     background: none;
     border: none;
-    color: var(--color-crema);
+    color: var(--color-superficie);
     font-size: 3rem;
     font-weight: 300;
     cursor: pointer;
@@ -198,6 +197,7 @@
     }
 
     .galeria-eyebrow {
+        font-size: clamp(2.5rem, 10vw, 4rem);
         margin-bottom: 50px;
     }
 
@@ -207,7 +207,7 @@
 
     .galeria-grid {
         grid-template-columns: repeat(2, 1fr);
-        grid-auto-rows: 180px;
+        grid-auto-rows: 140px;
         gap: 10px;
     }
 
@@ -279,7 +279,7 @@
     align-items: center;
     justify-content: center;
     gap: 6px;
-    color: var(--color-crema);
+    color: var(--color-superficie);
     pointer-events: none;
 }
 

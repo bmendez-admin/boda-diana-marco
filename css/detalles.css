@@ -1,8 +1,17 @@
 #detalles {
     position: relative;
-    background-color: var(--color-crema);
+    background-image: radial-gradient(circle at 50% 30%, rgba(226, 220, 180, 0.15), transparent 65%);
     padding: 130px 24px;
+    overflow: hidden;
     opacity: 0;
+}
+
+.detalles-texture {
+    position: absolute;
+    inset: 0;
+    opacity: 0.1;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    pointer-events: none;
 }
 
 #detalles.detalles-visible {
@@ -11,42 +20,47 @@
 }
 
 .detalles-eyebrow {
+    position: relative;
+    z-index: 2;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 18px;
-    font-family: var(--font-display);
-    font-style: italic;
-    font-size: 1.4rem;
-    color: #A8825A;
-    letter-spacing: 0.04em;
+    font-family: var(--font-script);
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    color: var(--color-acento);
+    letter-spacing: 0.02em;
     margin-bottom: 24px;
 }
 
 .detalles-eyebrow-linea {
     width: 60px;
     height: 1px;
-    background: linear-gradient(90deg, transparent, #C9A96E);
+    background: linear-gradient(90deg, transparent, var(--color-acento));
 }
 
 .detalles-eyebrow-linea.derecha {
-    background: linear-gradient(90deg, #C9A96E, transparent);
+    background: linear-gradient(90deg, var(--color-acento), transparent);
 }
 
 .detalles-eyebrow-diamante {
-    color: #C9A96E;
+    color: var(--color-acento);
     font-size: 0.8rem;
 }
 
 .detalles-frase {
+    position: relative;
+    z-index: 2;
     text-align: center;
     font-family: var(--font-script);
     font-size: 2rem;
-    color: #B8860B;
+    color: var(--color-acento);
     margin-bottom: 90px;
 }
 
 .detalles-grid {
+    position: relative;
+    z-index: 2;
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
@@ -56,9 +70,21 @@
 }
 
 .detalles-divisor {
+    position: relative;
     width: 1px;
     align-self: stretch;
-    background: linear-gradient(180deg, transparent, #C9A96E 15%, #C9A96E 85%, transparent);
+    background: linear-gradient(180deg, transparent, var(--color-acento) 15%, var(--color-acento) 85%, transparent);
+}
+
+.detalles-divisor-diamante {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--color-fondo);
+    color: var(--color-acento);
+    font-size: 0.9rem;
+    padding: 8px 0;
 }
 
 .detalles-columna {
@@ -68,14 +94,20 @@
 
 .detalle-item {
     position: relative;
-    border-bottom: 1px solid rgba(201, 169, 110, 0.35);
+    border-bottom: 1px solid rgba(180, 111, 31, 0.35);
+    border-left: 3px solid transparent;
     opacity: 0;
     transform: translateY(24px);
     overflow: hidden;
+    transition: border-left-color 0.35s ease;
 }
 
 .detalles-columna .detalle-item:first-child {
-    border-top: 1px solid rgba(201, 169, 110, 0.35);
+    border-top: 1px solid rgba(180, 111, 31, 0.35);
+}
+
+.detalle-item.activo {
+    border-left-color: var(--color-acento);
 }
 
 .detalle-numero-fondo {
@@ -85,8 +117,8 @@
     transform: translateY(-50%);
     font-family: var(--font-display);
     font-size: 6.5rem;
-    color: #8C7B6B;
-    opacity: 0.06;
+    color: var(--color-texto-oscuro);
+    opacity: 0.09;
     line-height: 1;
     pointer-events: none;
     z-index: 0;
@@ -102,37 +134,68 @@
     background: none;
     border: none;
     cursor: pointer;
-    padding: 26px 0;
+    padding: 26px 0 26px 14px;
     text-align: left;
+    transition: padding-left 0.3s ease;
+}
+
+.detalle-pregunta:hover {
+    padding-left: 22px;
+}
+
+.detalle-pregunta:hover .detalle-titulo {
+    color: var(--color-acento);
+}
+
+.detalle-icono-circulo {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--color-blanco);
+    border: 1.5px solid var(--color-acento);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
 }
 
 .detalle-icono-svg {
-    width: 30px;
-    height: 30px;
+    width: 34px;
+    height: 34px;
     flex-shrink: 0;
 }
 
 .detalle-numero {
     font-family: var(--font-display);
     font-style: italic;
-    font-size: 0.9rem;
-    color: #C9A96E;
+    font-size: 1rem;
+    color: var(--color-acento);
     flex-shrink: 0;
-    width: 22px;
+    width: 26px;
+    text-align: center;
+    transition: color 0.3s ease, background 0.3s ease;
+}
+
+.detalle-item.activo .detalle-numero {
+    color: var(--color-blanco);
+    background: var(--color-acento);
+    border-radius: 50%;
+    padding: 3px 0;
 }
 
 .detalle-titulo {
     flex: 1;
     font-family: var(--font-display);
-    font-size: 1.2rem;
-    color: var(--color-carbon);
+    font-size: 1.35rem;
+    color: var(--color-texto-oscuro);
+    transition: color 0.3s ease;
 }
 
 .detalle-icono {
     font-family: var(--font-body);
     font-size: 1.3rem;
     font-weight: 300;
-    color: #B8860B;
+    color: var(--color-acento);
     flex-shrink: 0;
     transition: transform 0.3s ease;
 }
@@ -150,10 +213,10 @@
 
 .detalle-respuesta p {
     font-family: var(--font-body);
-    font-size: 0.92rem;
-    color: var(--color-tierra);
+    font-size: 1.05rem;
+    color: var(--color-blanco);
     line-height: 1.7;
-    padding: 0 0 28px 66px;
+    padding: 0 0 28px 96px;
 }
 
 @media (max-width: 900px) {
@@ -162,6 +225,7 @@
     }
 
     .detalles-eyebrow {
+        font-size: clamp(2.5rem, 10vw, 4rem);
         margin-bottom: 20px;
     }
 
@@ -187,11 +251,22 @@
         font-size: 4.5rem;
     }
 
+    .detalle-icono-circulo {
+        width: 52px;
+        height: 52px;
+    }
+
+    .detalle-icono-svg {
+        width: 28px;
+        height: 28px;
+    }
+
     .detalle-titulo {
-        font-size: 1.05rem;
+        font-size: 1.15rem;
     }
 
     .detalle-respuesta p {
-        padding-left: 48px;
+        font-size: 0.98rem;
+        padding-left: 72px;
     }
 }

@@ -1,8 +1,8 @@
 #rsvp {
     position: relative;
-    background-color: var(--color-crema);
     padding: 130px 24px;
     opacity: 0;
+    background-color: var(--color-fondo);
 }
 
 #rsvp.rsvp-visible {
@@ -12,26 +12,40 @@
 
 .rsvp-marco {
     position: relative;
+    overflow: hidden;
     max-width: 700px;
     margin: 0 auto;
     padding: 70px 40px;
-    border: 1px solid rgba(140, 123, 107, 0.25);
+    border: 1px solid rgba(112, 68, 21, 0.25);
+    background-color: var(--color-superficie);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    background-image: radial-gradient(circle at 50% 30%, rgba(180, 111, 31, 0.06), transparent 65%);
     text-align: center;
     opacity: 0;
     transform: translateY(30px);
+}
+
+.rsvp-texture {
+    position: absolute;
+    inset: 0;
+    opacity: 0.08;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    pointer-events: none;
 }
 
 .rsvp-marco-esquina {
     position: absolute;
     width: 34px;
     height: 34px;
+    z-index: 2;
 }
 
 .rsvp-marco-esquina::before,
 .rsvp-marco-esquina::after {
     content: '';
     position: absolute;
-    background: #C9A96E;
+    background: var(--color-acento);
 }
 
 .rsvp-marco-esquina::before {
@@ -54,30 +68,39 @@
 .esquina-br { bottom: -1px; right: -1px; transform: scale(-1, -1); }
 
 .rsvp-script {
+    position: relative;
+    z-index: 2;
     font-family: var(--font-script);
     font-size: 1.8rem;
-    color: #B8860B;
+    color: var(--color-acento);
     margin-bottom: 6px;
 }
 
 .rsvp-titulo {
+    position: relative;
+    z-index: 2;
     font-family: var(--font-display);
     font-size: 2.2rem;
-    color: var(--color-carbon);
+    color: var(--color-texto-oscuro);
     margin-bottom: 12px;
 }
 
 .rsvp-fecha-limite {
+    position: relative;
+    z-index: 2;
     font-family: var(--font-body);
     font-size: 0.82rem;
-    color: var(--color-tierra);
+    color: var(--color-texto-oscuro);
+    opacity: 0.85;
     letter-spacing: 0.08em;
     margin-bottom: 34px;
 }
 
 .rsvp-btn-abrir {
-    background: var(--color-carbon);
-    color: var(--color-crema);
+    position: relative;
+    z-index: 2;
+    background: var(--color-texto-oscuro);
+    color: var(--color-texto-claro);
     border: none;
     padding: 16px 42px;
     font-family: var(--font-body);
@@ -89,7 +112,7 @@
 }
 
 .rsvp-btn-abrir:hover {
-    background: #B8860B;
+    background: var(--color-acento);
 }
 
 .rsvp-modal {
@@ -112,7 +135,7 @@
 
 .rsvp-modal-contenido {
     position: relative;
-    background: var(--color-blanco);
+    background: var(--color-tarjetas);
     max-width: 560px;
     width: 100%;
     max-height: 90vh;
@@ -128,7 +151,7 @@
     background: none;
     border: none;
     font-size: 1.3rem;
-    color: var(--color-tierra);
+    color: var(--color-texto-claro);
     cursor: pointer;
 }
 
@@ -143,13 +166,14 @@
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: rgba(201, 169, 110, 0.3);
-    transition: background 0.3s ease, transform 0.3s ease;
+    background: rgba(226, 220, 180, 0.3);
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .rsvp-dot.activo {
-    background: #B8860B;
+    background: var(--color-acento);
     transform: scale(1.3);
+    box-shadow: 0 0 0 5px rgba(180, 111, 31, 0.25);
 }
 
 .rsvp-paso {
@@ -165,7 +189,7 @@
 .rsvp-paso-titulo {
     font-family: var(--font-display);
     font-size: 1.6rem;
-    color: var(--color-carbon);
+    color: var(--color-texto-claro);
     text-align: center;
     margin-bottom: 8px;
 }
@@ -174,7 +198,8 @@
     text-align: center;
     font-family: var(--font-body);
     font-size: 0.85rem;
-    color: var(--color-tierra);
+    color: var(--color-texto-claro);
+    opacity: 0.8;
     margin-bottom: 30px;
 }
 
@@ -190,18 +215,18 @@
     align-items: center;
     gap: 14px;
     padding: 18px 22px;
-    border: 1px solid #C9A96E;
+    border: 1px solid var(--color-acento);
     background: none;
     font-family: var(--font-body);
     font-size: 0.95rem;
-    color: var(--color-carbon);
+    color: var(--color-texto-claro);
     cursor: pointer;
     transition: background 0.3s ease, color 0.3s ease;
 }
 
 .rsvp-opcion:hover,
 .rsvp-opcion.seleccionado {
-    background: #C9A96E;
+    background: var(--color-acento);
     color: var(--color-blanco);
 }
 
@@ -217,7 +242,8 @@
     display: block;
     font-family: var(--font-body);
     font-size: 0.75rem;
-    color: #A8825A;
+    color: var(--color-texto-claro);
+    opacity: 0.85;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     margin-bottom: 10px;
@@ -228,19 +254,30 @@
 .rsvp-textarea {
     width: 100%;
     border: none;
-    border-bottom: 1px solid rgba(201, 169, 110, 0.5);
+    border-bottom: 1px solid rgba(226, 220, 180, 0.5);
     background: none;
     padding: 10px 4px;
     font-family: var(--font-body);
     font-size: 0.95rem;
-    color: var(--color-carbon);
+    color: var(--color-blanco);
+    color-scheme: dark;
+}
+
+.rsvp-select option {
+    background: var(--color-tarjetas);
+    color: var(--color-blanco);
+}
+
+.rsvp-input::placeholder,
+.rsvp-textarea::placeholder {
+    color: rgba(226, 220, 180, 0.55);
 }
 
 .rsvp-select:focus,
 .rsvp-input:focus,
 .rsvp-textarea:focus {
     outline: none;
-    border-bottom-color: #B8860B;
+    border-bottom-color: var(--color-acento);
 }
 
 .rsvp-textarea {
@@ -255,17 +292,18 @@
     display: flex;
     justify-content: space-between;
     padding: 12px 0;
-    border-bottom: 1px solid rgba(201, 169, 110, 0.25);
+    border-bottom: 1px solid rgba(226, 220, 180, 0.25);
     font-family: var(--font-body);
     font-size: 0.88rem;
 }
 
 .rsvp-resumen-linea span:first-child {
-    color: var(--color-tierra);
+    color: var(--color-texto-claro);
+    opacity: 0.8;
 }
 
 .rsvp-resumen-linea span:last-child {
-    color: var(--color-carbon);
+    color: var(--color-texto-claro);
     font-weight: 500;
     text-align: right;
     max-width: 60%;
@@ -273,8 +311,8 @@
 
 .rsvp-btn-enviar {
     width: 100%;
-    background: var(--color-carbon);
-    color: var(--color-crema);
+    background: var(--color-acento);
+    color: var(--color-blanco);
     border: none;
     padding: 16px;
     font-family: var(--font-body);
@@ -286,7 +324,7 @@
 }
 
 .rsvp-btn-enviar:hover {
-    background: #B8860B;
+    background: var(--color-texto-oscuro);
 }
 
 .rsvp-btn-enviar:disabled {
@@ -303,35 +341,38 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 60px;
-    height: 60px;
-    border: 1px solid #C9A96E;
+    width: 64px;
+    height: 64px;
+    border: 1px dashed var(--color-acento);
     border-radius: 50%;
-    color: #B8860B;
+    color: var(--color-acento);
     font-size: 1.6rem;
     margin-bottom: 24px;
+    box-shadow: 0 0 0 6px rgba(180, 111, 31, 0.12);
 }
 
 .rsvp-exito-titulo {
     font-family: var(--font-display);
     font-size: 1.9rem;
-    color: var(--color-carbon);
+    color: var(--color-texto-claro);
     margin-bottom: 12px;
 }
 
 .rsvp-exito-texto {
     font-family: var(--font-body);
     font-size: 0.9rem;
-    color: var(--color-tierra);
+    color: var(--color-texto-claro);
+    opacity: 0.85;
     line-height: 1.6;
 }
 
 .rsvp-nav {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-top: 30px;
     padding-top: 20px;
-    border-top: 1px solid rgba(201, 169, 110, 0.25);
+    border-top: 1px solid rgba(226, 220, 180, 0.25);
 }
 
 .rsvp-nav-btn {
@@ -341,12 +382,21 @@
     font-size: 0.78rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--color-tierra);
+    color: rgba(226, 220, 180, 0.7);
     cursor: pointer;
+    padding: 10px 18px;
 }
 
 .rsvp-nav-siguiente {
-    color: #B8860B;
+    background: var(--color-acento);
+    color: var(--color-blanco);
+    opacity: 1;
+    transition: background 0.3s ease;
+}
+
+.rsvp-nav-siguiente:hover {
+    background: var(--color-blanco);
+    color: var(--color-tarjetas);
 }
 
 .rsvp-nav-btn:disabled {
@@ -379,18 +429,18 @@
 .rsvp-file-boton {
     display: inline-block;
     padding: 10px 20px;
-    border: 1px dashed #C9A96E;
+    border: 1px dashed var(--color-acento);
     font-family: var(--font-body);
     font-size: 0.78rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: #B8860B;
+    color: var(--color-texto-claro);
     cursor: pointer;
     transition: background 0.3s ease, color 0.3s ease;
 }
 
 .rsvp-file-boton:hover {
-    background: #C9A96E;
+    background: var(--color-acento);
     color: var(--color-blanco);
 }
 
