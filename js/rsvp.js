@@ -15,6 +15,14 @@ function initRsvp() {
   const btnEnviar = document.getElementById("rsvp-enviar");
   const nav = document.getElementById("rsvp-nav");
 
+  const yaRespondio =
+    invitadoData &&
+    (invitadoData.estado === "Confirmado" || invitadoData.estado === "Declinó");
+
+  if (yaRespondio) {
+    btnAbrir.textContent = "Ver mi confirmación";
+  }
+
   nombreInvitado.textContent = invitadoData ? invitadoData.nombre : "";
 
   for (
@@ -31,6 +39,15 @@ function initRsvp() {
   function abrirModal() {
     modal.classList.add("rsvp-modal-activo");
     irAPaso(1);
+  }
+
+  function abrirModalSegunEstado() {
+    if (yaRespondio) {
+      pintarConfirmacion();
+      document.getElementById("confirmacion-modal").classList.add("confirmacion-modal-activo");
+      return;
+    }
+    abrirModal();
   }
 
   function cerrarModal() {
@@ -174,7 +191,6 @@ function initRsvp() {
           return true;
         }
       } catch (e) {
-        // seguimos intentando
       }
     }
     return false;
@@ -287,7 +303,7 @@ function initRsvp() {
 
   btnEnviar.addEventListener("click", enviarRsvp);
 
-  btnAbrir.addEventListener("click", abrirModal);
+  btnAbrir.addEventListener("click", abrirModalSegunEstado);
   btnCerrar.addEventListener("click", cerrarModal);
   modal.addEventListener("click", (e) => {
     if (e.target === modal) cerrarModal();

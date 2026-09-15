@@ -46,6 +46,12 @@ function mostrarError() {
 
 function mostrarYaConfirmo() {
     document.getElementById('pantalla-ya-confirmo').classList.remove('hidden');
+    document.getElementById('ver-invitacion-btn').addEventListener('click', mostrarInvitacionCompleta);
+}
+
+function mostrarInvitacionCompleta() {
+    document.getElementById('pantalla-ya-confirmo').classList.add('hidden');
+    mostrarInvitacion();
 }
 
 function mostrarInvitacion() {
