@@ -134,15 +134,6 @@
   display: block;
 }
 
-.timeline-anio {
-  display: block;
-  font-family: var(--font-script);
-  font-size: 3rem;
-  color: var(--color-acento);
-  line-height: 1;
-  margin-bottom: 8px;
-}
-
 .timeline-titulo {
   font-family: var(--font-display);
   font-size: 1.6rem;
