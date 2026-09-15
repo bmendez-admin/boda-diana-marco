@@ -124,6 +124,17 @@
   background: linear-gradient(90deg, transparent, var(--color-acento), transparent);
 }
 
+.countdown-faltan {
+  font-family: var(--font-body);
+  font-size: clamp(0.75rem, 1.6vw, 1rem);
+  color: var(--color-acento);
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  font-weight: 600;
+  opacity: 0;
+  margin-top: -0.4rem;
+}
+
 .countdown-timer {
   display: flex;
   align-items: center;

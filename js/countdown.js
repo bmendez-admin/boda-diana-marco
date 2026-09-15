@@ -35,6 +35,7 @@ function animarEntradaCountdown() {
 
             tl.fromTo('.countdown-eyebrow', { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' })
                 .to('.countdown-fecha', { opacity: 1, duration: 0.6, ease: 'power2.out' }, '-=0.4')
+                .fromTo('.countdown-faltan', { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }, '-=0.3')
                 .to('.countdown-bloque', {
                     opacity: 1,
                     duration: 0.5,
