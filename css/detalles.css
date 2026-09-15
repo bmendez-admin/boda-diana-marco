@@ -110,20 +110,6 @@
     border-left-color: var(--color-acento);
 }
 
-.detalle-numero-fondo {
-    position: absolute;
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
-    font-family: var(--font-display);
-    font-size: 6.5rem;
-    color: var(--color-texto-oscuro);
-    opacity: 0.09;
-    line-height: 1;
-    pointer-events: none;
-    z-index: 0;
-}
-
 .detalle-pregunta {
     position: relative;
     z-index: 1;
@@ -245,10 +231,6 @@
 
     .detalles-divisor {
         display: none;
-    }
-
-    .detalle-numero-fondo {
-        font-size: 4.5rem;
     }
 
     .detalle-icono-circulo {
