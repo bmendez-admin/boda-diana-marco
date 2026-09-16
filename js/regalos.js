@@ -37,6 +37,42 @@ function initRegalos() {
             });
         }
     });
+
+    initCopiarDatos();
+}
+
+function initCopiarDatos() {
+    const botones = document.querySelectorAll('.sobre-dato-copiar');
+
+    botones.forEach((boton) => {
+        boton.addEventListener('click', async (e) => {
+            e.stopPropagation();
+            const valor = boton.dataset.copiar;
+
+            try {
+                await navigator.clipboard.writeText(valor);
+                mostrarCopiado(boton);
+            } catch (err) {
+                console.warn('No se pudo copiar al portapapeles', err);
+            }
+        });
+    });
+}
+
+function mostrarCopiado(boton) {
+    const iconoCopiar = boton.querySelector('.icono-copiar');
+    const iconoCheck = boton.querySelector('.icono-check');
+
+    boton.classList.add('copiado');
+    iconoCopiar.hidden = true;
+    iconoCheck.hidden = false;
+
+    clearTimeout(boton._copiarTimeout);
+    boton._copiarTimeout = setTimeout(() => {
+        boton.classList.remove('copiado');
+        iconoCopiar.hidden = false;
+        iconoCheck.hidden = true;
+    }, 1600);
 }
 
 function revealRegalos() {

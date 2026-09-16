@@ -103,7 +103,7 @@
     max-width: 1200px;
     margin: 0 auto 50px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 30px;
 }
 
@@ -111,11 +111,11 @@
     position: relative;
     overflow: hidden;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    text-align: center;
+    gap: 24px;
+    text-align: left;
     background: #e2dcb4;
-    padding: 56px 30px;
+    padding: 32px 30px;
     box-shadow: -8px 14px 30px rgba(112, 68, 21, 0.14);
     border-top: 3px solid var(--color-acento);
     text-decoration: none;
@@ -135,7 +135,7 @@
     top: -10px;
     right: 10px;
     font-family: var(--font-display);
-    font-size: 6rem;
+    font-size: 5rem;
     color: var(--color-texto-oscuro);
     opacity: 0.09;
     line-height: 1;
@@ -144,42 +144,49 @@
 
 .regalo-icono-circulo {
     position: relative;
-    width: 74px;
-    height: 74px;
+    width: 64px;
+    height: 64px;
     border-radius: 50%;
     background: var(--color-blanco);
     border: 1.5px solid var(--color-acento);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 24px;
+    flex-shrink: 0;
 }
 
 .regalo-icono {
-    width: 34px;
-    height: 34px;
+    width: 30px;
+    height: 30px;
+}
+
+.regalo-texto {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
 }
 
 .regalo-tienda {
-    position: relative;
     font-family: var(--font-display);
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     color: var(--color-texto-oscuro);
-    margin-bottom: 12px;
 }
 
 .regalo-desc {
-    position: relative;
     font-family: var(--font-body);
     font-size: 0.85rem;
     color: var(--color-texto-oscuro);
     opacity: 0.85;
     line-height: 1.5;
-    margin-bottom: 26px;
+    margin-bottom: 6px;
 }
 
 .regalo-btn {
-    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     font-family: var(--font-body);
     font-size: 0.74rem;
     letter-spacing: 0.14em;
@@ -187,6 +194,17 @@
     color: var(--color-acento);
     border-bottom: 1px solid var(--color-acento);
     padding-bottom: 4px;
+    width: fit-content;
+}
+
+.regalo-btn-flecha {
+    font-size: 0.9rem;
+    line-height: 1;
+    transition: transform 0.25s ease;
+}
+
+.regalo-card:hover .regalo-btn-flecha {
+    transform: translate(2px, -2px);
 }
 
 .regalo-sobre-panel {
@@ -276,6 +294,7 @@
     padding: 34px 44px;
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
     gap: 24px;
 }
 
@@ -297,6 +316,67 @@
     font-family: var(--font-display);
     font-size: 1.2rem;
     color: var(--color-texto-oscuro);
+}
+
+.sobre-dato-fila {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.sobre-dato-copiar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1px solid rgba(180, 111, 31, 0.4);
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.sobre-dato-copiar:hover {
+    background: rgba(180, 111, 31, 0.1);
+}
+
+.sobre-dato-copiar.copiado {
+    border-color: var(--color-acento);
+    background: rgba(180, 111, 31, 0.14);
+}
+
+.copiar-icono {
+    width: 14px;
+    height: 14px;
+}
+
+.sobre-dato-copiar::after {
+    content: '¡Copiado!';
+    position: absolute;
+    bottom: 130%;
+    left: 50%;
+    transform: translateX(-50%) translateY(4px);
+    background: var(--color-texto-oscuro);
+    color: var(--color-blanco);
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    letter-spacing: 0.05em;
+    padding: 4px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.sobre-dato-copiar.copiado::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
 }
 
 @media (max-width: 900px) {
@@ -327,17 +407,25 @@
     }
 
     .regalo-card {
-        padding: 40px 24px;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 14px;
+        padding: 34px 24px;
+    }
+
+    .regalo-texto {
+        align-items: center;
     }
 
     .regalo-icono-circulo {
-        width: 62px;
-        height: 62px;
+        width: 58px;
+        height: 58px;
     }
 
     .regalo-icono {
-        width: 28px;
-        height: 28px;
+        width: 26px;
+        height: 26px;
     }
 
     .regalo-sobre-panel {
@@ -350,5 +438,14 @@
     .sobre-datos-info {
         flex-direction: column;
         padding: 26px 24px;
+    }
+
+    .sobre-dato-fila {
+        gap: 10px;
+    }
+
+    .sobre-dato-copiar {
+        width: 32px;
+        height: 32px;
     }
 }
