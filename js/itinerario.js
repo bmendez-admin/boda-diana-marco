@@ -7,7 +7,8 @@ function construirTimelineItinerario(track, eventos, linea) {
         gsap.set(track, { x: 0 });
     }
 
-    const distanciaScroll = track.scrollWidth - window.innerWidth;
+    const anchoContenedor = document.getElementById('itinerario').getBoundingClientRect().width;
+    const distanciaScroll = Math.ceil(track.scrollWidth - anchoContenedor) + 2;
 
     const tl = gsap.timeline({
         scrollTrigger: {
