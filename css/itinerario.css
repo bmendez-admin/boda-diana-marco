@@ -96,6 +96,10 @@
   align-self: flex-start;
 }
 
+.itinerario-track > .itinerario-evento:first-child {
+  margin-left: 48px;
+}
+
 .itinerario-linea {
   position: absolute;
   top: 50%;
@@ -214,6 +218,10 @@
     width: 100%;
     align-self: auto;
     align-items: flex-start;
+  }
+
+  .itinerario-track > .itinerario-evento:first-child {
+    margin-left: 0;
   }
 
   .itinerario-linea {
