@@ -5,6 +5,7 @@
   padding: 100px 24px;
   overflow: hidden;
   pointer-events: none;
+  opacity: 0;
 }
 
 .timeline-texture {

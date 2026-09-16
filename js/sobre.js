@@ -62,6 +62,7 @@ function initSobre() {
                         countdown.classList.remove('hidden');
                         initCountdown();
                     }
+                    ScrollTrigger.refresh();
                 }
             });
     });
