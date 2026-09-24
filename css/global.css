@@ -1,9 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Jost:wght@300;400;500&family=Alex+Brush&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Jost:wght@300;400;500&family=Pinyon+Script&display=swap");
 
 :root {
   --color-fondo: #adbba3;
-  --color-superficie: #e2dcb4;
-  --color-texto-claro: #e2dcb4;
+  --color-superficie: #fffaeb;
+  --color-texto-claro: #fffaeb;
   --color-texto-oscuro: #704415;
   --color-acento: #b46f1f;
   --color-tarjetas: #5f7700;
@@ -11,7 +11,7 @@
   --color-overlay: rgba(44, 44, 44, 0.35);
   --font-display: "Lato", sans-serif;
   --font-body: "Jost", sans-serif;
-  --font-script: "Alex Brush", cursive;
+  --font-script: "Pinyon Script", cursive;
 }
 
 *,
@@ -115,11 +115,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-display);
-  font-size: 20px;
-  letter-spacing: 1px;
-  color: var(--color-texto-claro);
+  padding: 16px;
   margin-bottom: 20px;
+}
+
+.ya-confirmo-sello-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
 .ya-confirmo-script {

@@ -5,7 +5,7 @@
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  padding-bottom: 8vh;
+  padding-bottom: 1vh;
   overflow: hidden;
   background: #2c2c2c;
 }
@@ -15,7 +15,7 @@
   inset: 0;
   background-image: url("../img/hero.png");
   background-size: cover;
-  background-position: center 30%;
+  background-position: center 10%;
   background-repeat: no-repeat;
   clip-path: circle(0% at 50% 50%);
   filter: grayscale(0.1) sepia(0.1) contrast(1.02) brightness(0.95);
@@ -55,7 +55,7 @@
 
 .hero-script {
   font-family: var(--font-script);
-  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  font-size: clamp(2.5rem, 8vw, 4rem);
   color: var(--color-blanco);
   text-shadow: 0 2px 16px rgba(0, 0, 0, 0.5);
   margin-bottom: 0.5rem;
@@ -63,15 +63,12 @@
 }
 
 .hero-nombres {
-  font-family: var(--font-display);
-  font-size: clamp(3rem, 9vw, 6rem);
-  font-weight: 700;
-  color: var(--color-blanco);
-  letter-spacing: 0.03em;
-  line-height: 1.1;
-  margin-bottom: 1.5rem;
+  width: clamp(260px, 50vw, 800px);
+  height: auto;
+  display: block;
+  margin: 0 auto 1.5rem;
+  filter: drop-shadow(0 4px 24px rgba(0, 0, 0, 0.4));
   opacity: 0;
-  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
 }
 
 .hero-frase {
@@ -96,6 +93,8 @@
 
 @media (max-width: 768px) {
   #hero {
+    padding-left: 0;
+    padding-right: 0;
     padding-bottom: 12vh;
   }
 
@@ -104,17 +103,32 @@
     background-position: center center;
   }
 
-  .hero-nombres {
-    font-size: clamp(2.4rem, 11vw, 3.5rem);
+  .hero-content {
+    position: static;
+    padding: 0;
   }
 
   .hero-script {
+    position: absolute;
+    top: 6vh;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 5;
     font-size: clamp(1.8rem, 9vw, 2.8rem);
+    margin-bottom: 0;
+  }
+
+  .hero-nombres {
+    content: url("../img/DianaYMarco2.png");
+    width: clamp(280px, 92vw, 420px);
+    margin: 0 auto 1.5rem;
   }
 
   .hero-frase {
     letter-spacing: 0.12em;
     font-size: 0.7rem;
     max-width: 320px;
+    padding: 0 1.5rem;
   }
 }

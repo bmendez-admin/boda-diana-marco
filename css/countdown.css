@@ -19,9 +19,9 @@
   position: absolute;
   pointer-events: none;
   z-index: 0;
-  max-width: clamp(260px, 38vw, 600px);
+  max-width: clamp(160px, 20vw, 340px);
   height: auto;
-  opacity: 0.75;
+  opacity: 1;
 }
 
 .countdown-decoracion-izq {
@@ -40,10 +40,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 3rem;
+  gap: 2.5rem;
   max-width: 1200px;
   width: 100%;
   flex-wrap: wrap;
+}
+
+.countdown-marco {
+  border: 1px solid var(--color-texto-claro);
+  padding: 2.2rem 1.8rem;
+  max-width: 640px;
+  width: 100%;
 }
 
 .countdown-text {
@@ -68,38 +75,7 @@
   gap: 1.2rem;
 }
 
-.eyebrow-rama {
-  width: clamp(18px, 4vw, 40px);
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--color-acento));
-  position: relative;
-  flex-shrink: 0;
-}
 
-.eyebrow-rama-izq {
-  background: linear-gradient(90deg, transparent, var(--color-acento));
-}
-
-.eyebrow-rama-der {
-  background: linear-gradient(90deg, var(--color-acento), transparent);
-}
-
-.eyebrow-rama::before {
-  content: '❋';
-  position: absolute;
-  top: 50%;
-  font-size: 0.8rem;
-  color: var(--color-acento);
-  transform: translateY(-50%);
-}
-
-.eyebrow-rama-izq::before {
-  right: -6px;
-}
-
-.eyebrow-rama-der::before {
-  left: -6px;
-}
 
 .countdown-fecha {
   font-family: var(--font-display);
@@ -127,10 +103,9 @@
 .countdown-faltan {
   font-family: var(--font-body);
   font-size: clamp(0.75rem, 1.6vw, 1rem);
-  color: var(--color-acento);
-  letter-spacing: 0.35em;
-  text-transform: uppercase;
-  font-weight: 600;
+  color: var(--color-texto-claro);
+  letter-spacing: 0.05em;
+  font-weight: 500;
   opacity: 0;
   margin-top: -0.4rem;
 }
@@ -153,29 +128,20 @@
   flex-shrink: 0;
 }
 
-.countdown-marco {
+.countdown-marco-num {
   width: clamp(64px, 10vw, 120px);
   height: clamp(64px, 10vw, 120px);
-  border: 2px solid var(--color-acento);
-  border-radius: 12px;
+  border: 1.5px solid var(--color-acento);
+  border-radius: 22px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(160deg, #e2dcb4 0%, #d4ce9e 100%);
+  background: #fffaeb;
   position: relative;
-  box-shadow: 0 8px 24px rgba(112, 68, 21, 0.25), 0 2px 4px rgba(0,0,0,0.1), inset 0 1px 3px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 8px 24px rgba(112, 68, 21, 0.18), 0 2px 4px rgba(0,0,0,0.06);
 }
 
-.countdown-marco::before {
-  content: '';
-  position: absolute;
-  inset: 8px;
-  border: 1px solid rgba(180, 111, 31, 0.35);
-  border-radius: 6px;
-  pointer-events: none;
-}
-
-.countdown-marco span {
+.countdown-marco-num span {
   font-family: var(--font-display);
   font-size: clamp(1.6rem, 5vw, 3.5rem);
   font-weight: 700;
@@ -197,8 +163,7 @@
   font-family: var(--font-body);
   font-size: clamp(0.6rem, 1.1vw, 0.8rem);
   color: var(--color-texto-claro);
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
+  letter-spacing: 0.05em;
   font-weight: 600;
   white-space: nowrap;
 }
@@ -242,7 +207,7 @@
   display: none;
   flex-direction: column;
   align-items: center;
-  background: linear-gradient(160deg, #e2dcb4 0%, #d4ce9e 100%);
+  background: linear-gradient(160deg, #fffaeb 0%, #efeace 100%);
   border: 1px solid var(--color-acento);
   border-radius: 8px;
   padding: 2rem 2.2rem;
@@ -367,36 +332,45 @@
   .countdown-calendario { display: flex; }
   .countdown-conector { display: flex; }
   .countdown-text { width: auto; }
+  .countdown-marco {
+    max-width: 660px;
+    padding: 2rem 1.8rem;
+    border: none;
+  }
+  .countdown-eyebrow {
+    font-size: clamp(2rem, 2.8vw, 2.3rem);
+  }
 }
 
 @media (max-width: 480px) {
+  .countdown-marco {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 38rem;
+    padding: 1.6rem 1.2rem;
+  }
+
   .countdown-timer {
     gap: 0.35rem;
   }
 
-  .countdown-marco {
+  .countdown-marco-num {
     width: clamp(54px, 17vw, 74px);
     height: clamp(54px, 17vw, 74px);
-    border-radius: 8px;
+    border-radius: 16px;
   }
 
-  .countdown-marco span {
+  .countdown-marco-num span {
     font-size: clamp(1.3rem, 7vw, 2rem);
   }
 
   .countdown-bloque label {
     font-size: 0.55rem;
-    letter-spacing: 0.12em;
   }
 
   .countdown-separador {
     font-size: clamp(1rem, 4vw, 1.4rem);
     margin-bottom: 0.9rem;
   }
-}
-
-@media (max-width: 420px) {
-  #countdown { padding: 5rem 1rem; }
-  .countdown-decoracion { max-width: 250px; opacity: 0.5; }
-  .eyebrow-rama { width: 12px; }
 }
