@@ -165,7 +165,7 @@
 
 @media (max-width: 768px) {
   .sobre-header-nombres {
-    content: url("../img/DianaYMarco2.png");
+    content: url("../img/diana-y-marco2.png");
     width: clamp(160px, 90vw, 300px);
   }
 
