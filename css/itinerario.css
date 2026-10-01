@@ -177,9 +177,10 @@
 .itinerario-hora {
   display: block;
   font-family: var(--font-script);
-  font-size: 2rem;
+  font-size: 1.4rem;
   color: var(--color-acento);
   line-height: 1;
+  white-space: nowrap;
 }
 
 .itinerario-nombre {
