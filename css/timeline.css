@@ -134,6 +134,19 @@
   display: block;
 }
 
+.timeline-foto-doble {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.timeline-foto-doble .timeline-foto {
+  width: auto;
+  max-width: calc(50% - 8px);
+  flex: 0 1 auto;
+}
+
 .timeline-titulo {
   font-family: var(--font-display);
   font-size: 1.6rem;
@@ -168,4 +181,9 @@
   .timeline-hito:nth-child(even) .timeline-tarjeta { text-align: left; }
   .timeline-decoracion { width: 100px; }
   .timeline-eyebrow { font-size: clamp(2.5rem, 10vw, 4rem); margin-top: 40px; }
+  .timeline-foto-extra { display: none; }
+  .timeline-foto-doble .timeline-foto {
+    width: 100%;
+    max-width: 100%;
+  }
 }

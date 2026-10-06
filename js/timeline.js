@@ -37,7 +37,7 @@ function initTimeline() {
             }
         });
 
-        gsap.to(hito.querySelector('.timeline-foto'), {
+        gsap.to(hito.querySelectorAll('.timeline-foto'), {
             scale: 1,
             ease: 'none',
             scrollTrigger: {
