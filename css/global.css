@@ -106,8 +106,8 @@ body::before {
 #pantalla-ya-confirmo {
   position: fixed;
   inset: 0;
-  background-color: var(--color-fondo);
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+  overflow: hidden;
+  background: var(--color-textura) url("../img/fondo-textura.jpeg") center center / max(var(--textura-ancho), 100vw) auto no-repeat;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -121,7 +121,7 @@ body::before {
 #pantalla-ya-confirmo h1 {
   font-family: var(--font-display);
   font-size: clamp(2rem, 5vw, 3rem);
-  color: var(--color-texto-claro);
+  color: var(--color-texto-oscuro);
   margin-bottom: 1rem;
 }
 
@@ -129,7 +129,7 @@ body::before {
 #pantalla-ya-confirmo p {
   font-family: var(--font-body);
   font-size: 1rem;
-  color: var(--color-texto-claro);
+  color: var(--color-texto-oscuro);
   max-width: 400px;
   line-height: 1.6;
   opacity: 0.85;
@@ -147,8 +147,10 @@ body::before {
 
 .ya-confirmo-decoracion {
   position: absolute;
-  width: 140px;
+  width: clamp(200px, 34vw, 460px);
   opacity: 0.9;
+  z-index: -1;
+  pointer-events: none;
 }
 
 .ya-confirmo-decoracion-izq {
@@ -166,6 +168,7 @@ body::before {
   height: 70px;
   border-radius: 50%;
   border: 1.5px solid var(--color-acento);
+  color: var(--color-acento);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -182,7 +185,7 @@ body::before {
 .ya-confirmo-script {
   font-family: var(--font-script);
   font-size: 28px;
-  color: var(--color-texto-claro);
+  color: var(--color-acento);
   margin-bottom: 8px;
 }
 
@@ -190,8 +193,8 @@ body::before {
   margin-top: 28px;
   padding: 14px 36px;
   background: none;
-  border: 1px solid var(--color-texto-claro);
-  color: var(--color-texto-claro);
+  border: 1px solid var(--color-acento);
+  color: var(--color-acento);
   font-family: var(--font-body);
   font-size: 13px;
   letter-spacing: 1.5px;
@@ -201,8 +204,8 @@ body::before {
 }
 
 .ya-confirmo-btn:hover {
-  background: var(--color-texto-claro);
-  color: var(--color-texto-oscuro);
+  background: var(--color-acento);
+  color: var(--color-superficie);
 }
 
 .confirmacion-modal {

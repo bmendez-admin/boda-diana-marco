@@ -103,7 +103,7 @@
     max-width: 1200px;
     margin: 0 auto 50px;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     gap: 30px;
 }
 
