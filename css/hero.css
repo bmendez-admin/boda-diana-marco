@@ -7,7 +7,7 @@
   justify-content: center;
   padding-bottom: 4vh;
   overflow: hidden;
-  background: #2c2c2c;
+  background: var(--color-fondo);
 }
 
 .hero-imagen-wrapper {

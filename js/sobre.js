@@ -46,23 +46,25 @@ function initSobre() {
             .to(solapaAnimada, { rotateX: -160, duration: 0.9, ease: 'power2.inOut' }, '-=0.3')
             .to(sombra, { opacity: 0, duration: 0.3, ease: 'power1.in' }, '-=0.2')
             .to('#sobre', { y: -20, scale: 1.04, duration: 0.35, ease: 'power1.out' }, '-=0.3')
+            .add(function () {
+                const hero = document.getElementById('hero');
+                const countdown = document.getElementById('countdown');
+                if (hero) {
+                    hero.classList.remove('hidden');
+                    initHero();
+                }
+                if (countdown) {
+                    countdown.classList.remove('hidden');
+                    initCountdown();
+                }
+                ScrollTrigger.refresh();
+            })
             .to(sobreContainer, {
                 opacity: 0,
                 duration: 0.5,
                 ease: 'power2.in',
                 onComplete: function () {
                     sobreContainer.style.display = 'none';
-                    const hero = document.getElementById('hero');
-                    const countdown = document.getElementById('countdown');
-                    if (hero) {
-                        hero.classList.remove('hidden');
-                        initHero();
-                    }
-                    if (countdown) {
-                        countdown.classList.remove('hidden');
-                        initCountdown();
-                    }
-                    ScrollTrigger.refresh();
                 }
             });
     });
