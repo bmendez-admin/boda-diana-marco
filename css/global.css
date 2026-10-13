@@ -60,7 +60,7 @@ body::before {
   height: 100lvh;
   z-index: -1;
   pointer-events: none;
-  background: var(--color-textura) url("../img/fondo-textura.jpeg") center center / max(var(--textura-ancho), 100vw) auto no-repeat;
+  background: var(--color-textura) url("../img/fondo-textura.jpg") center center / max(var(--textura-ancho), 100vw) auto no-repeat;
 }
 
 .fondo-global section,
@@ -89,7 +89,7 @@ body::before {
   height: 100lvh;
   z-index: -1;
   pointer-events: none;
-  background: var(--color-textura) url("../img/fondo-textura.jpeg") center center / max(var(--textura-ancho), 100vw) auto no-repeat;
+  background: var(--color-textura) url("../img/fondo-textura.jpg") center center / max(var(--textura-ancho), 100vw) auto no-repeat;
 }
 
 .ticket-muesca {
@@ -107,7 +107,7 @@ body::before {
   position: fixed;
   inset: 0;
   overflow: hidden;
-  background: var(--color-textura) url("../img/fondo-textura.jpeg") center center / max(var(--textura-ancho), 100vw) auto no-repeat;
+  background: var(--color-textura) url("../img/fondo-textura.jpg") center center / max(var(--textura-ancho), 100vw) auto no-repeat;
   display: flex;
   flex-direction: column;
   align-items: center;
