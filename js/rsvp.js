@@ -1,3 +1,5 @@
+const RSVP_MAX_ACOMPANANTES = 10;
+
 let rsvpPasoActual = 1;
 let rsvpAsistencia = null;
 let rsvpBoletosSeleccionados = 1;
@@ -25,11 +27,20 @@ function initRsvp() {
 
   nombreInvitado.textContent = invitadoData ? invitadoData.nombre : "";
 
-  for (
-    let i = 1;
-    i <= (invitadoData ? invitadoData.boletosAsignados : 1);
-    i++
-  ) {
+  const acompanantesPermitidos = invitadoData
+    ? Math.min(
+        Math.max(parseInt(invitadoData.boletosAsignados, 10) || 0, 0),
+        RSVP_MAX_ACOMPANANTES,
+      )
+    : 0;
+  const maxPersonas = acompanantesPermitidos + 1;
+  const campoBoletos = selectBoletos.closest(".rsvp-campo");
+
+  if (maxPersonas === 1 && campoBoletos) {
+    campoBoletos.style.display = "none";
+  }
+
+  for (let i = 1; i <= maxPersonas; i++) {
     const opt = document.createElement("option");
     opt.value = i;
     opt.textContent = i === 1 ? "1 persona" : `${i} personas`;
@@ -128,7 +139,10 @@ function initRsvp() {
   function generarAcompanantes(cantidad) {
     const contenedor = document.getElementById("rsvp-acompanantes");
     contenedor.innerHTML = "";
-    const numAcompanantes = Math.min(cantidad - 1, 3);
+    const numAcompanantes = Math.max(
+      0,
+      Math.min(cantidad - 1, RSVP_MAX_ACOMPANANTES),
+    );
 
     for (let i = 1; i <= numAcompanantes; i++) {
       const campo = document.createElement("div");
