@@ -76,22 +76,6 @@ body::before {
   background: none !important;
 }
 
-#sobre-container {
-  isolation: isolate;
-}
-
-.fondo-textura-fijo {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  height: 100lvh;
-  z-index: -1;
-  pointer-events: none;
-  background: var(--color-textura) url("../img/fondo-textura.jpg") center center / max(var(--textura-ancho), 100vw) auto no-repeat;
-}
-
 .ticket-muesca {
   background: transparent !important;
 }
